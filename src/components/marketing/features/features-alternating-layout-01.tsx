@@ -1,7 +1,7 @@
 "use client";
 
 import type { FC, HTMLAttributes } from "react";
-import { ChartBreakoutSquare, MessageChatCircle, MessageSmileCircle, ZapFast } from "@untitledui/icons";
+import { Tablet01, BellRinging02, Users03, Gift01 } from "@untitledui/icons";
 import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-icon";
 import { CheckItemText } from "@/components/marketing/pricing-sections/base-components/pricing-tier-card";
 import { cx } from "@/utils/cx";
@@ -39,7 +39,7 @@ export const FeaturesAlternatingLayout01 = () => {
             <div className="mx-auto flex w-full max-w-container flex-col gap-12 px-4 sm:gap-16 md:gap-20 md:px-8 lg:gap-24">
                 <div className="grid grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2 lg:gap-24">
                     <div className="max-w-xl flex-1 self-center">
-                        <FeaturedIcon icon={MessageChatCircle} size="lg" color="brand" theme="light" />
+                        <FeaturedIcon icon={Tablet01} size="lg" color="brand" theme="light" />
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">Guest Ordering Made Personal</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
                             Your guests scan a QR code, browse your menu with photos and descriptions, customise their order, and submit directly to the kitchen. No app download required.
@@ -75,7 +75,7 @@ export const FeaturesAlternatingLayout01 = () => {
 
                 <div className="grid grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2 lg:gap-24">
                     <div className="max-w-xl flex-1 self-center lg:order-last">
-                        <FeaturedIcon icon={ZapFast} size="lg" color="brand" theme="light" />
+                        <FeaturedIcon icon={BellRinging02} size="lg" color="brand" theme="light" />
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">Kitchen Operations That Flow</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
                             Orders appear instantly on kitchen displays organized by station. Your team prepares, marks ready, and the system notifies guests automatically.
@@ -111,7 +111,7 @@ export const FeaturesAlternatingLayout01 = () => {
 
                 <div className="grid grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2 lg:gap-24">
                     <div className="max-w-xl flex-1 self-center">
-                        <FeaturedIcon icon={ChartBreakoutSquare} size="lg" color="brand" theme="light" />
+                        <FeaturedIcon icon={Users03} size="lg" color="brand" theme="light" />
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">Staff & Back-Office Automation</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
                             Gamified task management, automated inventory alerts, and real-time reporting keep your team engaged and your operation running smoothly.
@@ -147,7 +147,7 @@ export const FeaturesAlternatingLayout01 = () => {
 
                 <div className="grid grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2 lg:gap-24">
                     <div className="max-w-xl flex-1 self-center lg:order-last">
-                        <FeaturedIcon icon={MessageSmileCircle} size="lg" color="brand" theme="light" />
+                        <FeaturedIcon icon={Gift01} size="lg" color="brand" theme="light" />
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">Customer Loyalty & Analytics</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
                             Built-in loyalty programmes and actionable insights help you understand your guests, reward regulars, and make data-driven decisions.

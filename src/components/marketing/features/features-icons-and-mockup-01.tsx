@@ -1,6 +1,6 @@
 "use client";
 
-import { ChartBreakoutSquare, MessageChatCircle, MessageSmileCircle, Zap } from "@untitledui/icons";
+import { QrCode01, Package, Users03, Gift01 } from "@untitledui/icons";
 import { IPhoneMockup } from "@/components/shared-assets/iphone-mockup";
 import { FeatureTextFeaturedIconTopLeft } from "./base-components/feature-text";
 
@@ -23,22 +23,22 @@ export const FeaturesIconsAndMockup01 = () => {
                             {
                                 title: "QR & POS Ordering",
                                 subtitle: "Unified ordering system that works as QR self-service or traditional POS. Your guests order how they want, you manage it all in one place.",
-                                icon: MessageChatCircle,
+                                icon: QrCode01,
                             },
                             {
                                 title: "Smart Inventory Management",
                                 subtitle: "Real-time ingredient tracking with automated prep lists and low-stock alerts. Know exactly what you have and what you need.",
-                                icon: Zap,
+                                icon: Package,
                             },
                             {
                                 title: "Staff Automation & Gamification",
                                 subtitle: "Turn daily tasks into engaging workflows. Automated checklists, shift handovers, and performance tracking that your team actually enjoys using.",
-                                icon: ChartBreakoutSquare,
+                                icon: Users03,
                             },
                             {
                                 title: "Customer Loyalty & Analytics",
-                                subtitle: "Built-in loyalty programs and actionable insights. Understand your guests, reward regulars, and make data-driven decisions.",
-                                icon: MessageSmileCircle,
+                                subtitle: "Built-in loyalty programmes and actionable insights. Understand your guests, reward regulars, and make data-driven decisions.",
+                                icon: Gift01,
                             },
                         ].map((item) => (
                             <li key={item.title}>

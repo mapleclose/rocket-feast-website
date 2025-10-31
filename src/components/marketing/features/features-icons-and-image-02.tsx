@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, ChartBreakoutSquare, MessageChatCircle, Zap } from "@untitledui/icons";
+import { ArrowRight, Building07, BarChart11, Users03 } from "@untitledui/icons";
 import { Button } from "@/components/base/buttons/button";
 import { FeatureTextFeaturedIconLeft } from "./base-components/feature-text";
 
@@ -23,21 +23,21 @@ export const FeaturesIconsAndImage02 = () => {
                             {
                                 title: "Multi-Venue Restaurants & Cafes",
                                 subtitle: "Manage multiple locations with unified menus, centralised inventory, and consistent guest experience across all your venues.",
-                                icon: MessageChatCircle,
+                                icon: Building07,
                                 cta: "Learn more",
                                 href: "#",
                             },
                             {
                                 title: "High-Volume Service Venues",
                                 subtitle: "Perfect for beach clubs, hotels, and large seating areas where table service is slow and guests want autonomy.",
-                                icon: Zap,
+                                icon: Users03,
                                 cta: "Learn more",
                                 href: "#",
                             },
                             {
                                 title: "Quality-Focused Operations",
                                 subtitle: "For operators who care about data, efficiency, and guest satisfaction. If you're tired of guessing and want real insights, Rocket Feast is for you.",
-                                icon: ChartBreakoutSquare,
+                                icon: BarChart11,
                                 cta: "Learn more",
                                 href: "#",
                             },

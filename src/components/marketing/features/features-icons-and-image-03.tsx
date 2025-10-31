@@ -1,6 +1,6 @@
 "use client";
 
-import { MessageChatCircle, Zap } from "@untitledui/icons";
+import { Heart, LineChartUp03 } from "@untitledui/icons";
 import { VideoPlayer } from "@/components/base/video-player/video-player";
 import { FeatureTextFeaturedIconLeft } from "./base-components/feature-text";
 
@@ -23,14 +23,14 @@ export const FeaturesIconsAndImage03 = () => {
                             {
                                 title: "Guest-Centric Ordering",
                                 subtitle: "QR ordering that feels personal, not automated. Your guests browse, customise, and order from their phones whilst your staff focus on hospitality.",
-                                icon: MessageChatCircle,
+                                icon: Heart,
                                 cta: "Learn more",
                                 href: "#",
                             },
                             {
                                 title: "Operator-First Platform",
                                 subtitle: "Built by restaurant operators who understand your challenges. Real-time insights, automated workflows, and complete visibility across your entire operation.",
-                                icon: Zap,
+                                icon: LineChartUp03,
                                 cta: "Learn more",
                                 href: "#",
                             },
