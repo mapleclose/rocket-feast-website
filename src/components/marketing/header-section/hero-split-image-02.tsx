@@ -14,26 +14,26 @@ export const HeroSplitImage02 = () => {
                 <div className="mx-auto w-full max-w-container px-4 md:px-8">
                     <div className="flex flex-col items-start md:max-w-3xl lg:w-1/2 lg:pr-8">
                         <a href="#" className="rounded-full outline-focus-ring focus-visible:outline-2 focus-visible:outline-offset-2">
-                            <BadgeGroup className="hidden md:flex" size="lg" addonText="We're hiring!" iconTrailing={ArrowRight} theme="light" color="brand">
-                                Join our remote team
+                            <BadgeGroup className="hidden md:flex" size="lg" addonText="Free plan available" iconTrailing={ArrowRight} theme="light" color="brand">
+                                Get started today
                             </BadgeGroup>
-                            <BadgeGroup className="md:hidden" size="md" addonText="We're hiring!" iconTrailing={ArrowRight} theme="light" color="brand">
-                                Join our remote team
+                            <BadgeGroup className="md:hidden" size="md" addonText="Free plan available" iconTrailing={ArrowRight} theme="light" color="brand">
+                                Get started today
                             </BadgeGroup>
                         </a>
 
                         <h1 className="mt-4 text-display-md font-semibold text-primary md:text-display-lg lg:text-display-xl">
-                            People who care about your growth
+                            Your Restaurant, Fully Automated
                         </h1>
                         <p className="mt-4 text-lg text-balance text-tertiary md:mt-6 md:text-xl">
-                            Powerful, self-serve product and growth analytics to help you convert, engage, and retain more.
+                            The all-in-one platform that unifies QR ordering, POS, inventory, staff automation, and analytics. Built by restaurateurs for restaurants, cafes, and hospitality venues.
                         </p>
 
                         <div className="mt-8 flex w-full flex-col-reverse items-stretch gap-3 md:mt-12 md:flex-row md:items-start">
                             <Button color="secondary" size="xl" iconLeading={PlayCircle}>
-                                Demo
+                                Watch Demo
                             </Button>
-                            <Button size="xl">Sign up</Button>
+                            <Button size="xl">Get Started for Free</Button>
                         </div>
                     </div>
                 </div>

@@ -10,27 +10,26 @@ export const FeaturesIconsAndImage03 = () => {
             <div className="bg-secondary pt-16 pb-[112px] md:pt-24 md:pb-40">
                 <div className="mx-auto grid w-full max-w-container grid-cols-1 gap-12 px-4 md:gap-16 md:px-8 lg:grid-cols-2 lg:gap-24">
                     <div className="flex w-full flex-col">
-                        <span className="text-sm font-semibold text-brand-secondary md:text-md">New feature</span>
+                        <span className="text-sm font-semibold text-brand-secondary md:text-md">Why Rocket Feast</span>
 
-                        <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Introducing team inboxes</h2>
+                        <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Run Lean. Serve Better</h2>
                         <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
-                            Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users. Trusted by over 4,000
-                            startups.
+                            Modern hospitality demands speed, accuracy, and exceptional guest experience. Rocket Feast eliminates operational chaos by connecting your front-of-house, kitchen, and back-office in one intelligent platform.
                         </p>
                     </div>
 
                     <ul className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 lg:grid-cols-1">
                         {[
                             {
-                                title: "Share team inboxes",
-                                subtitle: "Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.",
+                                title: "Guest-Centric Ordering",
+                                subtitle: "QR ordering that feels personal, not automated. Your guests browse, customise, and order from their phones whilst your staff focus on hospitality.",
                                 icon: MessageChatCircle,
                                 cta: "Learn more",
                                 href: "#",
                             },
                             {
-                                title: "Deliver instant answers",
-                                subtitle: "An all-in-one customer service platform that helps you balance everything your customers need to be happy.",
+                                title: "Operator-First Platform",
+                                subtitle: "Built by restaurant operators who understand your challenges. Real-time insights, automated workflows, and complete visibility across your entire operation.",
                                 icon: Zap,
                                 cta: "Learn more",
                                 href: "#",

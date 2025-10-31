@@ -9,11 +9,11 @@ export const FeaturesIconsAndMockup01 = () => {
         <section className="overflow-hidden bg-primary pt-16 lg:py-24">
             <div className="mx-auto w-full max-w-container">
                 <div className="flex w-full flex-col px-4 md:px-8 lg:max-w-210">
-                    <span className="text-sm font-semibold text-brand-secondary md:text-md">Features</span>
+                    <span className="text-sm font-semibold text-brand-secondary md:text-md">Complete Platform</span>
 
-                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Overflowing with useful features</h2>
+                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Everything You Need in One System</h2>
                     <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
-                        Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users. Trusted by over 4,000 startups.
+                        Stop juggling spreadsheets, paper checklists, and disconnected apps. Rocket Feast brings your entire operation together in one powerful, easy-to-use platform.
                     </p>
                 </div>
 
@@ -21,25 +21,23 @@ export const FeaturesIconsAndMockup01 = () => {
                     <ul className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 md:gap-y-12">
                         {[
                             {
-                                title: "Share team inboxes",
-                                subtitle: "Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.",
+                                title: "QR & POS Ordering",
+                                subtitle: "Unified ordering system that works as QR self-service or traditional POS. Your guests order how they want, you manage it all in one place.",
                                 icon: MessageChatCircle,
                             },
                             {
-                                title: "Deliver instant answers",
-                                subtitle: "An all-in-one customer service platform that helps you balance everything your customers need to be happy.",
+                                title: "Smart Inventory Management",
+                                subtitle: "Real-time ingredient tracking with automated prep lists and low-stock alerts. Know exactly what you have and what you need.",
                                 icon: Zap,
                             },
                             {
-                                title: "Manage your team with reports",
-                                subtitle:
-                                    "Measure what matters with Untitled's easy-to-use reports. You can filter, export, and drilldown on the data in a couple clicks.",
+                                title: "Staff Automation & Gamification",
+                                subtitle: "Turn daily tasks into engaging workflows. Automated checklists, shift handovers, and performance tracking that your team actually enjoys using.",
                                 icon: ChartBreakoutSquare,
                             },
                             {
-                                title: "Connect with customers",
-                                subtitle:
-                                    "Solve a problem or close a sale in real-time with chat. If no one is available, customers are seamlessly routed to email without confusion.",
+                                title: "Customer Loyalty & Analytics",
+                                subtitle: "Built-in loyalty programs and actionable insights. Understand your guests, reward regulars, and make data-driven decisions.",
                                 icon: MessageSmileCircle,
                             },
                         ].map((item) => (
