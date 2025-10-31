@@ -1,77 +1,47 @@
-"use client";
-
-import { BookOpen01, Check, Copy01, Cube01, HelpCircle } from "@untitledui/icons";
-import { Button } from "@/components/base/buttons/button";
-import { ButtonUtility } from "@/components/base/buttons/button-utility";
-import { UntitledLogoMinimal } from "@/components/foundations/logo/untitledui-logo-minimal";
-import { useClipboard } from "@/hooks/use-clipboard";
+import { HeroSplitImage02 } from "@/components/marketing/header-section/hero-split-image-02";
+import { SocialProofFullWidth } from "@/components/marketing/social-proof/social-proof-full-width";
+import { FeaturesIconsAndImage03 } from "@/components/marketing/features/features-icons-and-image-03";
+import { FeaturesIconsAndImage02 } from "@/components/marketing/features/features-icons-and-image-02";
+import { FeaturesIconsAndMockup01 } from "@/components/marketing/features/features-icons-and-mockup-01";
+import { FeaturesAlternatingLayout01 } from "@/components/marketing/features/features-alternating-layout-01";
+import { CTASplitImage03 } from "@/components/marketing/cta/cta-split-image-03";
+import { FooterLarge04 } from "@/components/marketing/footers/footer-large-04";
 
 export const HomeScreen = () => {
-    const clipboard = useClipboard();
-
     return (
-        <div className="flex h-dvh flex-col">
-            <div className="flex min-h-0 flex-1 flex-col items-center justify-center px-4 md:px-8">
-                <div className="relative flex size-28 items-center justify-center">
-                    <UntitledLogoMinimal className="size-10" />
-                </div>
+        <div>
+            {/* Hero split image 02: main header/banner */}
+            <HeroSplitImage02 />
 
-                <h1 className="max-w-3xl text-center text-display-sm font-semibold text-primary">Untitled UI Next.js starter kit</h1>
+            {/* Social Proof > Full width */}
+            <SocialProofFullWidth />
 
-                <p className="mt-2 max-w-xl text-center text-lg text-tertiary">
-                    Get started by using existing components that came with this starter kit or add new ones:
-                </p>
+            {/* Icons and image 03: intro video and key value proposition */}
+            <FeaturesIconsAndImage03 />
 
-                <div className="relative mt-6 flex h-10 items-center rounded-lg border border-secondary bg-secondary">
-                    <code className="px-3 font-mono text-secondary">npx untitledui@latest add</code>
+            {/* Icons and image 02: Problem it is solving and who it is for */}
+            <FeaturesIconsAndImage02 />
 
-                    <hr className="h-10 w-px bg-border-secondary" />
+            {/* TODO: Simple with actions 01: Value delivered - Component needs to be installed */}
+            {/* Run: npx untitledui@latest add metrics-simple-with-actions-02 --path src/components */}
 
-                    <ButtonUtility
-                        color="tertiary"
-                        size="sm"
-                        tooltip="Copy"
-                        className="mx-1"
-                        icon={clipboard.copied ? Check : Copy01}
-                        onClick={() => clipboard.copy("npx untitledui@latest add")}
-                    />
-                </div>
+            {/* Icons and mockup 01: Feature summary */}
+            <FeaturesIconsAndMockup01 />
 
-                <div className="mt-6 flex items-center gap-3">
-                    <Button
-                        href="https://www.untitledui.com/react/docs/introduction"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        color="link-color"
-                        size="lg"
-                        iconLeading={BookOpen01}
-                    >
-                        Docs
-                    </Button>
-                    <div className="h-px w-4 bg-brand-solid" />
-                    <Button
-                        href="https://www.untitledui.com/react/resources/icons"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        color="link-color"
-                        size="lg"
-                        iconLeading={Cube01}
-                    >
-                        Icons
-                    </Button>
-                    <div className="h-px w-4 bg-brand-solid" />
-                    <Button
-                        href="https://github.com/untitleduico/react/issues"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        color="link-color"
-                        size="lg"
-                        iconLeading={HelpCircle}
-                    >
-                        Help
-                    </Button>
-                </div>
-            </div>
+            {/* Alternating layout 01: more detailed walk through of key features */}
+            <FeaturesAlternatingLayout01 />
+
+            {/* TODO: Pricing > Simple callout: Highlight plans - Component needs to be installed */}
+            {/* Run: npx untitledui@latest add pricing-simple-call-out --path src/components */}
+
+            {/* TODO: Simple centered 02: Testimonials - Component needs to be installed */}
+            {/* Run: npx untitledui@latest add testimonial-simple-centered-02 --path src/components */}
+
+            {/* Split image 03: CTA */}
+            <CTASplitImage03 />
+
+            {/* Footer > Large 04: No email needed */}
+            <FooterLarge04 />
         </div>
     );
 };

@@ -175,10 +175,27 @@ When working on this project:
 7. **Clear CTAs** - Every page should guide users toward signup or contact
 8. **Social proof** - Where possible, incorporate testimonials, case studies, and success metrics
 
+### Working with Untitled UI Components
+
+When installing Untitled UI components:
+- Use the batch installation method to avoid interactive prompts: `npx untitledui@latest add component-1 component-2 component-3 --path src/components`
+- Components may install to `src/src/components/` instead of `src/components/` - if this happens, use `rsync` to move them to the correct location
+- Always verify component installation with: `find src/components/marketing -name "*.tsx" -type f | sort`
+- Check export names match imports with: `grep -E "^export (const|function)" src/components/marketing/**/*.tsx`
+
 ## Current Status
 
 - Git repository initialized and connected to GitHub
 - Next.js + Untitled UI starter kit installed
 - Development server running on http://localhost:3000
 - README updated with project-specific documentation
-- Ready to begin building marketing pages and components
+- **Home page built with Untitled UI components** (see [src/app/home-screen.tsx](src/app/home-screen.tsx))
+  - ✅ All components rendering successfully
+  - ✅ VideoPlayer base component installed
+  - ✅ IPhoneMockup shared asset installed
+  - ✅ Page tested and working at http://localhost:3000
+
+- Missing components to install (marked with TODO comments in code):
+  - `npx untitledui@latest add metrics-simple-with-actions-02 --path src/components`
+  - `npx untitledui@latest add pricing-simple-call-out --path src/components`
+  - `npx untitledui@latest add testimonial-simple-centered-02 --path src/components`
