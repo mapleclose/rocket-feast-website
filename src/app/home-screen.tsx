@@ -6,7 +6,7 @@ import { MetricsSimpleWithActions01 } from "@/components/marketing/metrics/metri
 import { FeaturesIconsAndMockup01 } from "@/components/marketing/features/features-icons-and-mockup-01";
 import { FeaturesAlternatingLayout01 } from "@/components/marketing/features/features-alternating-layout-01";
 import { PricingSimpleIcon } from "@/components/marketing/pricing-sections/pricing-simple-icon";
-import { TestimonialSimpleCentered02 } from "@/components/marketing/testimonials/testimonial-simple-centered-02";
+import { TestimonialAbstractImage } from "@/components/marketing/testimonials/testimonial-abstract-image";
 import { CTASplitImage03 } from "@/components/marketing/cta/cta-split-image-03";
 import { FooterLarge04 } from "@/components/marketing/footers/footer-large-04";
 
@@ -37,8 +37,8 @@ export const HomeScreen = () => {
             {/* Pricing simple icon: Highlight plans */}
             <PricingSimpleIcon />
 
-            {/* Testimonial simple centered 02: Testimonials */}
-            <TestimonialSimpleCentered02 />
+            {/* Testimonial abstract image: Testimonials */}
+            <TestimonialAbstractImage />
 
             {/* Split image 03: CTA */}
             <CTASplitImage03 />

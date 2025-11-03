@@ -11,7 +11,7 @@ export const CTASplitImage03 = () => {
                             <span className="max-md:hidden">Start Free and Scale When You're Ready</span>
                             <span className="md:hidden">Start Free Today</span>
                         </h2>
-                        <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">Join leading hospitality venues across Thailand. No credit card required. Setup in minutes.</p>
+                        <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">Join hospitality venues improving efficiency, service speed, and profitability with Rocket Feast. No credit card required. Setup takes minutes.</p>
                         <div className="mt-8 flex w-full flex-col-reverse gap-3 md:w-auto md:flex-row">
                             <Button color="secondary" size="xl">
                                 Book a Demo

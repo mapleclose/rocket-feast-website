@@ -11,9 +11,9 @@ export const FeaturesIconsAndImage02 = () => {
                 <div className="flex w-full flex-col lg:max-w-3xl">
                     <span className="text-sm font-semibold text-brand-secondary md:text-md">Built for Modern Hospitality</span>
 
-                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Solve Real Problems. Serve More Guests</h2>
+                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Level Up Your Operations</h2>
                     <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
-                        Rocket Feast was built from the ground up to solve the operational challenges facing modern restaurants, cafes, and hospitality venues. If you're juggling multiple disconnected systems and stretched staff, we're here to help.
+                        Rocket Feast helps modern restaurants, cafes, and hospitality venues eliminate customer friction, deliver faster, and serve smarter. Fewer staff, more throughput, higher customer satisfaction.
                     </p>
                 </div>
 
@@ -21,22 +21,22 @@ export const FeaturesIconsAndImage02 = () => {
                     <ul className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 lg:grid-cols-1">
                         {[
                             {
-                                title: "Multi-Venue Restaurants & Cafes",
-                                subtitle: "Manage multiple locations with unified menus, centralised inventory, and consistent guest experience across all your venues.",
+                                title: "Multi-Venue Restaurants",
+                                subtitle: "Unify your brand with centralised workflow automation, inventory control, team accountability infrastructure, and consistent quality enforcement across all locations.",
                                 icon: Building07,
                                 cta: "Learn more",
                                 href: "#",
                             },
                             {
                                 title: "High-Volume Service Venues",
-                                subtitle: "Perfect for beach clubs, hotels, and large seating areas where table service is slow and guests want autonomy.",
+                                subtitle: "Ideal for restaurants, clubs, and hotel venues with fast-moving service. Reduce wait times, speed up fulfilment, and keep guests in control of their own experience.",
                                 icon: Users03,
                                 cta: "Learn more",
                                 href: "#",
                             },
                             {
                                 title: "Quality-Focused Operations",
-                                subtitle: "For operators who care about data, efficiency, and guest satisfaction. If you're tired of guessing and want real insights, Rocket Feast is for you.",
+                                subtitle: "Track and improve guest satisfaction in real time with integrated review capture and reporting. Standardise processes, maintain accountability, and scale quality as you grow.",
                                 icon: BarChart11,
                                 cta: "Learn more",
                                 href: "#",

@@ -12,9 +12,9 @@ export const FeaturesIconsAndImage03 = () => {
                     <div className="flex w-full flex-col">
                         <span className="text-sm font-semibold text-brand-secondary md:text-md">Why Rocket Feast</span>
 
-                        <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Run Lean. Serve Better</h2>
+                        <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Run Lean. Serve Better.</h2>
                         <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
-                            Modern hospitality demands speed, accuracy, and exceptional guest experience. Rocket Feast eliminates operational chaos by connecting your front-of-house, kitchen, and back-office in one intelligent platform.
+                            Modern hospitality demands speed, precision, and consistency. Rocket Feast connects your front-of-house, kitchen, and back-office into one intelligent system that helps you serve more guests at a higher standard with fewer staff.
                         </p>
                     </div>
 
@@ -22,14 +22,14 @@ export const FeaturesIconsAndImage03 = () => {
                         {[
                             {
                                 title: "Guest-Centric Ordering",
-                                subtitle: "QR ordering that feels personal, not automated. Your guests browse, customise, and order from their phones whilst your staff focus on hospitality.",
+                                subtitle: "QR ordering that feels effortless and personal. Guests browse and customise their meals from their phones while your staff focus on genuine hospitality.",
                                 icon: Heart,
                                 cta: "Learn more",
                                 href: "#",
                             },
                             {
                                 title: "Operator-First Platform",
-                                subtitle: "Built by restaurant operators who understand your challenges. Real-time insights, automated workflows, and complete visibility across your entire operation.",
+                                subtitle: "Built by restaurant operators who know the daily challenges. Automate staff workflows, gain real-time visibility, and run your entire operation from a single dashboard.",
                                 icon: LineChartUp03,
                                 cta: "Learn more",
                                 href: "#",

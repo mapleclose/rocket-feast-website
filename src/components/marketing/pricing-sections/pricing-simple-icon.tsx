@@ -2,58 +2,63 @@
 
 import { LayersThree01, LayersTwo01, Zap } from "@untitledui/icons";
 import { PricingTierCardIcon } from "@/components/marketing/pricing-sections/base-components/pricing-tier-card";
-
-const plans = [
-    {
-        title: "Basic plan",
-        subtitle: "$10/mth",
-        description: "Billed annually.",
-        features: [
-            "Access to all basic features",
-            "Basic reporting and analytics",
-            "Up to 10 individual users",
-            "20 GB individual data",
-            "Basic chat and email support",
-        ],
-        icon: Zap,
-    },
-    {
-        title: "Business plan",
-        subtitle: "$20/mth",
-        description: "Billed annually.",
-        features: [
-            "200+ integrations",
-            "Advanced reporting and analytics",
-            "Up to 20 individual users",
-            "40 GB individual data",
-            "Priority chat and email support",
-        ],
-        icon: LayersTwo01,
-    },
-    {
-        title: "Enterprise plan",
-        subtitle: "$40/mth",
-        description: "Billed annually.",
-        features: [
-            "Advanced custom fields",
-            "Audit log and data history",
-            "Unlimited individual users",
-            "Unlimited individual data",
-            "Personalized + priority service",
-        ],
-        icon: LayersThree01,
-    },
-];
+import { useI18n } from "@/hooks/use-i18n";
 
 export const PricingSimpleIcon = () => {
+    const { formatCurrency, regional } = useI18n();
+
+    const plans = [
+        {
+            title: "Starter",
+            subtitle: formatCurrency(regional.pricing.starter),
+            description: "Forever Free",
+            features: [
+                "QR code self-service ordering",
+                "POS for quick service and table management",
+                "Integrated in-app payments ",
+                "Real-time sales analytics",
+                "Customer feedback and review funnel",
+                "Discount codes and vouchers",
+                "Gamified staff task management",
+                "Staff performance tracking",
+                "Roster and leave tracking",
+            ],
+            icon: Zap,
+        },
+        {
+            title: "Professional",
+            subtitle: formatCurrency(regional.pricing.professional),
+            description: "Per user, per month",
+            features: [
+                "Everything in Starter",
+                "Third-party payment processor integration",
+                "Complete inventory management",
+                "Dietary sensitivity and allergen tracking",
+            ],
+            icon: LayersTwo01,
+        },
+        {
+            title: "Enterprise",
+            subtitle: formatCurrency(regional.pricing.enterprise),
+            description: "Per user, per month",
+            features: [
+                "Everything in Professional",
+                "Built-in loyalty programme",
+                "Issue tracking and resolution system",
+                "Advanced analytics and reporting",
+                "Custom enterprise integrations",
+            ],
+            icon: LayersThree01,
+        },
+    ];
     return (
         <section className="bg-primary py-16 md:py-24">
             <div className="mx-auto max-w-container px-4 md:px-8">
                 <div className="flex w-full max-w-3xl flex-col">
                     <p className="text-sm font-semibold text-brand-secondary md:text-md">Pricing</p>
-                    <h2 className="mt-3 text-display-md font-semibold text-primary md:text-display-lg">Simple, transparent pricing</h2>
+                    <h2 className="mt-3 text-display-md font-semibold text-primary md:text-display-lg">Start Free, Scale When Ready</h2>
                     <p className="mt-4 text-lg text-tertiary md:mt-6 md:text-xl">
-                        We believe Untitled should be accessible to all companies, no matter the size.
+                        No credit card required. Every plan includes all the essentials for modern hospitality, with powerful upgrades as you grow.
                     </p>
                 </div>
 

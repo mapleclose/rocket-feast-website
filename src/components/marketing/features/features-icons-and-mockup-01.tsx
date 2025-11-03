@@ -13,7 +13,7 @@ export const FeaturesIconsAndMockup01 = () => {
 
                     <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Everything You Need in One System</h2>
                     <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
-                        Stop juggling spreadsheets, paper checklists, and disconnected apps. Rocket Feast brings your entire operation together in one powerful, easy-to-use platform.
+                        Stop juggling spreadsheets and disconnected apps. Rocket Feast unifies your operation into one platform designed to help teams work faster and guests order easier.
                     </p>
                 </div>
 
@@ -22,22 +22,22 @@ export const FeaturesIconsAndMockup01 = () => {
                         {[
                             {
                                 title: "QR & POS Ordering",
-                                subtitle: "Unified ordering system that works as QR self-service or traditional POS. Your guests order how they want, you manage it all in one place.",
+                                subtitle: "Give guests full control of their experience while keeping traditional POS workflows for your team. A single system that powers self-service, quick service, and table operations seamlessly.",
                                 icon: QrCode01,
                             },
                             {
                                 title: "Smart Inventory Management",
-                                subtitle: "Real-time ingredient tracking with automated prep lists and low-stock alerts. Know exactly what you have and what you need.",
+                                subtitle: "Automated purchase orders, prep lists, and low-stock alerts ensure your kitchen always runs efficiently and stays ahead of demand.",
                                 icon: Package,
                             },
                             {
                                 title: "Staff Automation & Gamification",
-                                subtitle: "Turn daily tasks into engaging workflows. Automated checklists, shift handovers, and performance tracking that your team actually enjoys using.",
+                                subtitle: "Turn daily routines into motivating workflows. Keep your team accountable and enthusiastic with task tracking, time-sensitive prompts, and gamified rewards that boost efficiency.",
                                 icon: Users03,
                             },
                             {
                                 title: "Customer Loyalty & Analytics",
-                                subtitle: "Built-in loyalty programmes and actionable insights. Understand your guests, reward regulars, and make data-driven decisions.",
+                                subtitle: "Reward regulars automatically and understand your guests with a built-in loyalty programme, performance dashboards, and actionable insights that increase long-term value.",
                                 icon: Gift01,
                             },
                         ].map((item) => (

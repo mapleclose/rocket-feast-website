@@ -29,9 +29,9 @@ export const FeaturesAlternatingLayout01 = () => {
             <div className="mx-auto w-full max-w-container px-4 md:px-8">
                 <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
                     <span className="text-sm font-semibold text-brand-secondary md:text-md">How It Works</span>
-                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Seamless Operations, From Order to Close</h2>
+                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Seamless Operations from Order to Close</h2>
                     <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
-                        Rocket Feast connects every touchpoint in your operation. Here's how it transforms your daily workflow.
+                        Rocket Feast connects every touchpoint in your operation so service flows naturally and data works for you.
                     </p>
                 </div>
             </div>
@@ -42,13 +42,13 @@ export const FeaturesAlternatingLayout01 = () => {
                         <FeaturedIcon icon={Tablet01} size="lg" color="brand" theme="light" />
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">Guest Ordering Made Personal</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            Your guests scan a QR code, browse your menu with photos and descriptions, customise their order, and submit directly to the kitchen. No app download required.
+                            Guests scan a QR code to browse a beautifully designed, photo-rich menu filtered by dietary sensitivities. They customise and place orders instantly, and can track progress from preparation to serving.
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 pl-2 md:gap-5 md:pl-4">
                             {[
-                                "Beautiful, mobile-optimised menu with photos and dietary filters",
-                                "Real-time availability - sold out items disappear automatically",
-                                "Order modifications, special requests, and allergy notes",
+                                "Photo-optimised menus with filters for allergies and diets",
+                                "Real-time menu updates and availability",
+                                "Live order progress notifications for guests",
                             ].map((feat) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
@@ -78,13 +78,13 @@ export const FeaturesAlternatingLayout01 = () => {
                         <FeaturedIcon icon={BellRinging02} size="lg" color="brand" theme="light" />
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">Kitchen Operations That Flow</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            Orders appear instantly on kitchen displays organized by station. Your team prepares, marks ready, and the system notifies guests automatically.
+                            Orders route automatically to the right stations for faster prep and perfect coordination. Guests stay informed as orders move through the system.
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 pl-2 md:gap-5 md:pl-4">
                             {[
-                                "Station-specific displays (grill, bar, cold prep) for efficient workflow",
-                                "Ticket timing and priority management to avoid bottlenecks",
-                                "Automatic inventory deduction as orders are fulfilled",
+                                "Station-specific kitchen displays for precision workflow",
+                                "Automatic prioritisation to prevent bottlenecks",
+                                "Instant updates to guests when orders are ready",
                             ].map((feat) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
@@ -114,13 +114,13 @@ export const FeaturesAlternatingLayout01 = () => {
                         <FeaturedIcon icon={Users03} size="lg" color="brand" theme="light" />
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">Staff & Back-Office Automation</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            Gamified task management, automated inventory alerts, and real-time reporting keep your team engaged and your operation running smoothly.
+                            Keep teams organised and motivated with automated scheduling, checklists, and performance tracking.
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 pl-2 md:gap-5 md:pl-4">
                             {[
-                                "Daily checklists with photo verification and shift handovers",
-                                "Real-time sales, labour cost, and inventory analytics",
-                                "Staff performance tracking with rewards and leaderboards",
+                                "Time-sensitive and scheduled tasks with photo verification",
+                                "Roster generation and leave tracking",
+                                "Gamified performance rewards that drive engagement",
                             ].map((feat) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
@@ -150,13 +150,13 @@ export const FeaturesAlternatingLayout01 = () => {
                         <FeaturedIcon icon={Gift01} size="lg" color="brand" theme="light" />
                         <h2 className="mt-5 text-display-xs font-semibold text-primary md:text-display-sm">Customer Loyalty & Analytics</h2>
                         <p className="mt-2 text-md text-tertiary md:mt-4 md:text-lg">
-                            Built-in loyalty programmes and actionable insights help you understand your guests, reward regulars, and make data-driven decisions.
+                            Increase lifetime value with a built-in loyalty programme and integrated guest insights.
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 pl-2 md:gap-5 md:pl-4">
                             {[
-                                "Points-based rewards and member-exclusive benefits",
-                                "Guest profiles with order history and preferences",
-                                "Real-time sales analytics and performance dashboards",
+                                "Points-based rewards based on guest spending",
+                                "Guest profiles with order history and personalised menus",
+                                "Review funnel integration for major platforms",
                             ].map((feat) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}

@@ -3,7 +3,7 @@ export const SocialProofFullWidth = () => {
         <section className="bg-primary py-16 md:py-24">
             <div className="mx-auto max-w-container px-4 md:px-8">
                 <div className="flex flex-col gap-8">
-                    <p className="text-center text-md font-medium text-tertiary">Trusted by leading restaurants and hospitality venues across Thailand</p>
+                    <p className="text-center text-md font-medium text-tertiary">Trusted by leading restaurants and hospitality venues</p>
                     <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 xl:gap-x-6">
                         {/* Light mode images (hidden in dark mode) */}
                         <img alt="Odeaolabs" src="https://www.untitledui.com/logos/logotype/color/odeaolabs.svg" className="h-9 md:h-12 dark:hidden" />

@@ -5,6 +5,7 @@ import { Button } from "@/components/base/buttons/button";
 import { Form } from "@/components/base/form/form";
 import { Input } from "@/components/base/input/input";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
+import { useI18n } from "@/hooks/use-i18n";
 
 const footerNavList = [
     {
@@ -73,6 +74,8 @@ const footerNavList = [
 ];
 
 export const FooterLarge04 = () => {
+    const { regional } = useI18n();
+
     return (
         <footer className="bg-primary py-12 md:pt-16">
             <div className="mx-auto max-w-container px-4 md:px-8">
@@ -101,7 +104,9 @@ export const FooterLarge04 = () => {
                     </nav>
                 </div>
                 <div className="mt-12 flex flex-col-reverse justify-between gap-4 border-t border-secondary pt-8 md:mt-16 md:flex-row md:gap-6">
-                    <p className="text-md text-quaternary">© 2025 Yummi Umami Co., Ltd. All rights reserved.</p>
+                    <p className="text-md text-quaternary">
+                        © {new Date().getFullYear()} {regional.company.legalName}. All rights reserved.
+                    </p>
 
                     <ul className="flex gap-4">
                         {[

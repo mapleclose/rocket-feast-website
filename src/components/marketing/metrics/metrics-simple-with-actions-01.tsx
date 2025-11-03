@@ -10,38 +10,38 @@ export const MetricsSimpleWithActions01 = () => {
                 <div className="flex flex-col gap-12 md:gap-16">
                     <div className="flex items-start gap-8">
                         <div className="flex flex-1 flex-col">
-                            <h2 className="text-display-sm font-semibold text-primary md:text-display-md">Build something great</h2>
-                            <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">Everything you need to build modern UI and great products.</p>
+                            <h2 className="text-display-sm font-semibold text-primary md:text-display-md">Proven Results with Market Leaders</h2>
+                            <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">Rocket Feast delivers measurable impact for forward-thinking operators.</p>
                         </div>
                         <div className="hidden gap-3.5 md:flex">
                             <Button iconLeading={PlayCircle} color="secondary" size="xl">
-                                Demo
+                                Watch Demo
                             </Button>
-                            <Button size="xl">Get started</Button>
+                            <Button size="xl">Get Started Free</Button>
                         </div>
                     </div>
 
-                    <dl className="flex flex-col gap-8 md:flex-row">
+                    <dl className="flex flex-col gap-8 md:flex-row md:items-start">
                         {[
                             {
-                                title: "400+",
-                                subtitle: "Projects completed",
-                                description: "We've helped build over 400 amazing projects.",
+                                title: "41%",
+                                subtitle: "Smaller teams",
+                                description: "Venues achieve the same output with leaner front-of-house staffing through automated ordering and workflows.",
                             },
                             {
-                                title: "600%",
-                                subtitle: "Return on investment",
-                                description: "Our customers have reported an average of ~600% ROI.",
+                                title: "22%",
+                                subtitle: "Higher average order values",
+                                description: "Friction-free reordering and convenience drive more frequent and larger purchases.",
                             },
                             {
-                                title: "10k",
-                                subtitle: "Global downloads",
-                                description: "Our free UI kit has been downloaded over 10k times.",
+                                title: "1.4×",
+                                subtitle: "Faster time to delivery",
+                                description: "Connected ordering, kitchen, and fulfilment systems cut bottlenecks and reduce guest wait times.",
                             },
                             {
-                                title: "200+",
-                                subtitle: "5-star reviews",
-                                description: "We're proud of our 5-star rating with over 200 reviews.",
+                                title: "96%",
+                                subtitle: "Guest satisfaction",
+                                description: "Average satisfaction rate from guests using Rocket Feast's digital ordering experience.",
                             },
                         ].map((item, index) => (
                             <div key={index} className="flex flex-1 flex-col-reverse gap-3 text-center md:text-left">
@@ -56,9 +56,9 @@ export const MetricsSimpleWithActions01 = () => {
 
                     <div className="flex flex-col-reverse gap-3 md:hidden">
                         <Button iconLeading={PlayCircle} color="secondary" size="xl">
-                            Demo
+                            Watch Demo
                         </Button>
-                        <Button size="xl"> Get started</Button>
+                        <Button size="xl">Get Started Free</Button>
                     </div>
                 </div>
             </div>
