@@ -2,8 +2,11 @@ import { HeroSplitImage02 } from "@/components/marketing/header-section/hero-spl
 import { SocialProofFullWidth } from "@/components/marketing/social-proof/social-proof-full-width";
 import { FeaturesIconsAndImage03 } from "@/components/marketing/features/features-icons-and-image-03";
 import { FeaturesIconsAndImage02 } from "@/components/marketing/features/features-icons-and-image-02";
+import { MetricsSimpleWithActions01 } from "@/components/marketing/metrics/metrics-simple-with-actions-01";
 import { FeaturesIconsAndMockup01 } from "@/components/marketing/features/features-icons-and-mockup-01";
 import { FeaturesAlternatingLayout01 } from "@/components/marketing/features/features-alternating-layout-01";
+import { PricingSimpleIcon } from "@/components/marketing/pricing-sections/pricing-simple-icon";
+import { TestimonialSimpleCentered02 } from "@/components/marketing/testimonials/testimonial-simple-centered-02";
 import { CTASplitImage03 } from "@/components/marketing/cta/cta-split-image-03";
 import { FooterLarge04 } from "@/components/marketing/footers/footer-large-04";
 
@@ -22,8 +25,8 @@ export const HomeScreen = () => {
             {/* Icons and image 02: Problem it is solving and who it is for */}
             <FeaturesIconsAndImage02 />
 
-            {/* TODO: Simple with actions 01: Value delivered - Component needs to be installed */}
-            {/* Run: npx untitledui@latest add metrics-simple-with-actions-02 --path src/components */}
+            {/* Metrics simple with actions 01: Value delivered */}
+            <MetricsSimpleWithActions01 />
 
             {/* Icons and mockup 01: Feature summary */}
             <FeaturesIconsAndMockup01 />
@@ -31,11 +34,11 @@ export const HomeScreen = () => {
             {/* Alternating layout 01: more detailed walk through of key features */}
             <FeaturesAlternatingLayout01 />
 
-            {/* TODO: Pricing > Simple callout: Highlight plans - Component needs to be installed */}
-            {/* Run: npx untitledui@latest add pricing-simple-call-out --path src/components */}
+            {/* Pricing simple icon: Highlight plans */}
+            <PricingSimpleIcon />
 
-            {/* TODO: Simple centered 02: Testimonials - Component needs to be installed */}
-            {/* Run: npx untitledui@latest add testimonial-simple-centered-02 --path src/components */}
+            {/* Testimonial simple centered 02: Testimonials */}
+            <TestimonialSimpleCentered02 />
 
             {/* Split image 03: CTA */}
             <CTASplitImage03 />
