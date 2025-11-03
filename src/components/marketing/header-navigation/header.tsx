@@ -8,6 +8,7 @@ import { Button } from "@/components/base/buttons/button";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { UntitledLogoMinimal } from "@/components/foundations/logo/untitledui-logo-minimal";
 import { cx } from "@/utils/cx";
+import { useI18n } from "@/hooks/use-i18n";
 import { CountrySelector } from "./country-selector";
 import { DropdownMenuFeatureCard } from "./dropdown-menu-feature-card";
 import { DropdownMenuSimpleWithFooter } from "./dropdown-menu-simple-with-footer";
@@ -18,25 +19,6 @@ type HeaderNavItem = {
     href?: string;
     menu?: ReactNode;
 };
-
-const headerNavItems: HeaderNavItem[] = [
-    { label: "Products", href: "/products", menu: <DropdownMenuSimpleWithFooter /> },
-    { label: "Services", href: "/Services", menu: <DropdownMenuFeatureCard /> },
-    { label: "Pricing", href: "/pricing" },
-    { label: "Resources", href: "/resources", menu: <DropdownMenuWithTwoColsAndLinksAndFooter /> },
-    { label: "About", href: "/about" },
-];
-
-const footerNavItems = [
-    { label: "About us", href: "/" },
-    { label: "Press", href: "/products" },
-    { label: "Careers", href: "/resources" },
-    { label: "Legal", href: "/pricing" },
-    { label: "Support", href: "/pricing" },
-    { label: "Contact", href: "/pricing" },
-    { label: "Sitemap", href: "/pricing" },
-    { label: "Cookie settings", href: "/pricing" },
-];
 
 const MobileNavItem = (props: { className?: string; label: string; href?: string; children?: ReactNode }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -69,6 +51,19 @@ const MobileNavItem = (props: { className?: string; label: string; href?: string
 };
 
 const MobileFooter = () => {
+    const { t } = useI18n();
+
+    const footerNavItems = [
+        { label: t("nav.aboutUs"), href: "/" },
+        { label: t("nav.press"), href: "/products" },
+        { label: t("nav.careers"), href: "/resources" },
+        { label: t("nav.legal"), href: "/pricing" },
+        { label: t("nav.support"), href: "/pricing" },
+        { label: t("nav.contact"), href: "/pricing" },
+        { label: t("nav.sitemap"), href: "/pricing" },
+        { label: t("nav.cookieSettings"), href: "/pricing" },
+    ];
+
     return (
         <div className="flex flex-col gap-8 border-t border-secondary px-4 py-6">
             <div>
@@ -86,9 +81,9 @@ const MobileFooter = () => {
                 <div className="flex justify-center">
                     <CountrySelector />
                 </div>
-                <Button size="lg">Sign up</Button>
+                <Button size="lg">{t("common.signUp")}</Button>
                 <Button color="secondary" size="lg">
-                    Log in
+                    {t("common.logIn")}
                 </Button>
             </div>
         </div>
@@ -102,8 +97,19 @@ interface HeaderProps {
     className?: string;
 }
 
-export const Header = ({ items = headerNavItems, isFullWidth, isFloating, className }: HeaderProps) => {
+export const Header = ({ items, isFullWidth, isFloating, className }: HeaderProps) => {
+    const { t } = useI18n();
     const headerRef = useRef<HTMLElement>(null);
+
+    const defaultHeaderNavItems: HeaderNavItem[] = [
+        { label: t("nav.products"), href: "/products", menu: <DropdownMenuSimpleWithFooter /> },
+        { label: t("nav.services"), href: "/Services", menu: <DropdownMenuFeatureCard /> },
+        { label: t("nav.pricing"), href: "/pricing" },
+        { label: t("nav.resources"), href: "/resources", menu: <DropdownMenuWithTwoColsAndLinksAndFooter /> },
+        { label: t("nav.about"), href: "/about" },
+    ];
+
+    const navItems = items || defaultHeaderNavItems;
 
     return (
         <header
@@ -129,7 +135,7 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                         {/* Desktop navigation */}
                         <nav className="max-md:hidden">
                             <ul className="flex items-center gap-0.5">
-                                {items.map((navItem) => (
+                                {navItems.map((navItem) => (
                                     <li key={navItem.label}>
                                         {navItem.menu ? (
                                             <AriaDialogTrigger>
@@ -185,10 +191,10 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                     <div className="hidden items-center gap-3 md:flex">
                         <CountrySelector />
                         <Button color="secondary" size={isFloating ? "md" : "lg"}>
-                            Log in
+                            {t("common.logIn")}
                         </Button>
                         <Button color="primary" size={isFloating ? "md" : "lg"}>
-                            Sign up
+                            {t("common.signUp")}
                         </Button>
                     </div>
 
@@ -234,7 +240,7 @@ export const Header = ({ items = headerNavItems, isFullWidth, isFloating, classN
                             <AriaDialog className="outline-hidden">
                                 <nav className="w-full bg-primary shadow-lg">
                                     <ul className="flex flex-col gap-0.5 py-5">
-                                        {items.map((navItem) =>
+                                        {navItems.map((navItem) =>
                                             navItem.menu ? (
                                                 <MobileNavItem key={navItem.label} label={navItem.label}>
                                                     {navItem.menu}

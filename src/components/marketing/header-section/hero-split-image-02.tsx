@@ -4,8 +4,11 @@ import { Fragment } from "react";
 import { PlayCircle } from "@untitledui/icons";
 import { Button } from "@/components/base/buttons/button";
 import { Header } from "@/components/marketing/header-navigation/header";
+import { useI18n } from "@/hooks/use-i18n";
 
 export const HeroSplitImage02 = () => {
+    const { t } = useI18n();
+
     return (
         <Fragment>
             <Header className="bg-primary" />
@@ -13,17 +16,17 @@ export const HeroSplitImage02 = () => {
                 <div className="mx-auto w-full max-w-container px-4 md:px-8">
                     <div className="flex flex-col items-start md:max-w-3xl lg:w-1/2 lg:pr-8">
                         <h1 className="text-display-md font-semibold text-primary md:text-display-lg lg:text-display-xl">
-                            Great Hospitality, Automated.
+                            {t("hero.title")}
                         </h1>
                         <p className="mt-4 text-lg text-balance text-tertiary md:mt-6 md:text-xl">
-                            Serve more guests at higher quality with fewer staff through one connected platform for ordering, payments, and operations.
+                            {t("hero.subtitle")}
                         </p>
 
                         <div className="mt-8 flex w-full flex-col-reverse items-stretch gap-3 md:mt-12 md:flex-row md:items-start">
                             <Button color="secondary" size="xl" iconLeading={PlayCircle}>
-                                Watch Demo
+                                {t("hero.ctaSecondary")}
                             </Button>
-                            <Button size="xl">Get Started for Free</Button>
+                            <Button size="xl">{t("hero.ctaPrimary")}</Button>
                         </div>
                     </div>
                 </div>

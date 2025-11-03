@@ -3,36 +3,35 @@
 import { Heart, LineChartUp03 } from "@untitledui/icons";
 import { VideoPlayer } from "@/components/base/video-player/video-player";
 import { FeatureTextFeaturedIconLeft } from "./base-components/feature-text";
+import { useI18n } from "@/hooks/use-i18n";
 
 export const FeaturesIconsAndImage03 = () => {
+    const { t } = useI18n();
+
     return (
         <section className="bg-primary">
             <div className="bg-secondary pt-16 pb-[112px] md:pt-24 md:pb-40">
                 <div className="mx-auto grid w-full max-w-container grid-cols-1 gap-12 px-4 md:gap-16 md:px-8 lg:grid-cols-2 lg:gap-24">
                     <div className="flex w-full flex-col">
-                        <span className="text-sm font-semibold text-brand-secondary md:text-md">Why Rocket Feast</span>
+                        <span className="text-sm font-semibold text-brand-secondary md:text-md">{t("why.badge")}</span>
 
-                        <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Run Lean. Serve Better.</h2>
+                        <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">{t("why.title")}</h2>
                         <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
-                            Modern hospitality demands speed, precision, and consistency. Rocket Feast connects your front-of-house, kitchen, and back-office into one intelligent system that helps you serve more guests at a higher standard with fewer staff.
+                            {t("why.subtitle")}
                         </p>
                     </div>
 
                     <ul className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12 lg:grid-cols-1">
                         {[
                             {
-                                title: "Guest-Centric Ordering",
-                                subtitle: "QR ordering that feels effortless and personal. Guests browse and customise their meals from their phones while your staff focus on genuine hospitality.",
+                                title: t("why.guestOrdering.title"),
+                                subtitle: t("why.guestOrdering.description"),
                                 icon: Heart,
-                                cta: "Learn more",
-                                href: "#",
                             },
                             {
-                                title: "Operator-First Platform",
-                                subtitle: "Built by restaurant operators who know the daily challenges. Automate staff workflows, gain real-time visibility, and run your entire operation from a single dashboard.",
+                                title: t("why.operatorPlatform.title"),
+                                subtitle: t("why.operatorPlatform.description"),
                                 icon: LineChartUp03,
-                                cta: "Learn more",
-                                href: "#",
                             },
                         ].map((item, index) => (
                             <li key={item.title}>

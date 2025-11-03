@@ -16,17 +16,18 @@ export function useI18n() {
     }, [locale.region, locale.language]);
 
     /**
-     * Get a translated string using dot notation
+     * Get a translated string or value using dot notation
      * Example: t("common.learnMore") -> "Learn more"
+     * Example: t("howItWorks.features") -> ["Feature 1", "Feature 2"]
      */
     const t = useCallback(
-        (key: TranslationKey): string => {
+        (key: TranslationKey): any => {
             if (!config.content) {
                 console.warn(`Translation requested but content not configured. Key: ${key}`);
                 return key;
             }
             const value = getNestedValue(config.content, key);
-            if (typeof value === "string") {
+            if (value !== undefined && value !== null) {
                 return value;
             }
             // Fallback to key if translation not found (useful during development)

@@ -3,17 +3,20 @@
 import { QrCode01, Package, Users03, Gift01 } from "@untitledui/icons";
 import { IPhoneMockup } from "@/components/shared-assets/iphone-mockup";
 import { FeatureTextFeaturedIconTopLeft } from "./base-components/feature-text";
+import { useI18n } from "@/hooks/use-i18n";
 
 export const FeaturesIconsAndMockup01 = () => {
+    const { t } = useI18n();
+
     return (
         <section className="overflow-hidden bg-primary pt-16 lg:py-24">
             <div className="mx-auto w-full max-w-container">
                 <div className="flex w-full flex-col px-4 md:px-8 lg:max-w-210">
-                    <span className="text-sm font-semibold text-brand-secondary md:text-md">Complete Platform</span>
+                    <span className="text-sm font-semibold text-brand-secondary md:text-md">{t("completePlatform.badge")}</span>
 
-                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">Everything You Need in One System</h2>
+                    <h2 className="mt-3 text-display-sm font-semibold text-primary md:text-display-md">{t("completePlatform.title")}</h2>
                     <p className="mt-4 text-lg text-tertiary md:mt-5 md:text-xl">
-                        Stop juggling spreadsheets and disconnected apps. Rocket Feast unifies your operation into one platform designed to help teams work faster and guests order easier.
+                        {t("completePlatform.subtitle")}
                     </p>
                 </div>
 
@@ -21,23 +24,23 @@ export const FeaturesIconsAndMockup01 = () => {
                     <ul className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 md:gap-y-12">
                         {[
                             {
-                                title: "QR & POS Ordering",
-                                subtitle: "Give guests full control of their experience while keeping traditional POS workflows for your team. A single system that powers self-service, quick service, and table operations seamlessly.",
+                                title: t("completePlatform.qrPos.title"),
+                                subtitle: t("completePlatform.qrPos.description"),
                                 icon: QrCode01,
                             },
                             {
-                                title: "Smart Inventory Management",
-                                subtitle: "Automated purchase orders, prep lists, and low-stock alerts ensure your kitchen always runs efficiently and stays ahead of demand.",
+                                title: t("completePlatform.inventory.title"),
+                                subtitle: t("completePlatform.inventory.description"),
                                 icon: Package,
                             },
                             {
-                                title: "Staff Automation & Gamification",
-                                subtitle: "Turn daily routines into motivating workflows. Keep your team accountable and enthusiastic with task tracking, time-sensitive prompts, and gamified rewards that boost efficiency.",
+                                title: t("completePlatform.staffAutomation.title"),
+                                subtitle: t("completePlatform.staffAutomation.description"),
                                 icon: Users03,
                             },
                             {
-                                title: "Customer Loyalty & Analytics",
-                                subtitle: "Reward regulars automatically and understand your guests with a built-in loyalty programme, performance dashboards, and actionable insights that increase long-term value.",
+                                title: t("completePlatform.loyalty.title"),
+                                subtitle: t("completePlatform.loyalty.description"),
                                 icon: Gift01,
                             },
                         ].map((item) => (

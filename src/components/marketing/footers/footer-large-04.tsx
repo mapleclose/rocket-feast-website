@@ -7,74 +7,74 @@ import { Input } from "@/components/base/input/input";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { useI18n } from "@/hooks/use-i18n";
 
-const footerNavList = [
-    {
-        label: "Product",
-        items: [
-            {
-                label: "Features",
-                href: "#",
-            },
-            {
-                label: "Pricing",
-                href: "#",
-            },
-            {
-                label: "Integrations",
-                href: "#",
-            },
-            {
-                label: "Demo",
-                href: "#",
-                badge: (
-                    <Badge size="sm" type="modern" className="ml-1">
-                        Free
-                    </Badge>
-                ),
-            },
-            {
-                label: "Use Cases",
-                href: "#",
-            },
-            {
-                label: "Case Studies",
-                href: "#",
-            },
-        ],
-    },
-    {
-        label: "Company",
-        items: [
-            {
-                label: "About",
-                href: "#",
-            },
-            {
-                label: "Contact",
-                href: "#",
-            },
-            {
-                label: "Support",
-                href: "#",
-            },
-            {
-                label: "Documentation",
-                href: "#",
-            },
-            {
-                label: "Partner Program",
-                href: "#",
-            },
-            {
-                label: "Careers",
-                href: "#",
-            },
-        ],
-    },
-];
-
 export const FooterLarge04 = () => {
-    const { regional } = useI18n();
+    const { t, regional } = useI18n();
+
+    const footerNavList = [
+        {
+            label: t("footer.product.label"),
+            items: [
+                {
+                    label: t("footer.product.features"),
+                    href: "#",
+                },
+                {
+                    label: t("footer.product.pricing"),
+                    href: "#",
+                },
+                {
+                    label: t("footer.product.integrations"),
+                    href: "#",
+                },
+                {
+                    label: t("footer.product.demo"),
+                    href: "#",
+                    badge: (
+                        <Badge size="sm" type="modern" className="ml-1">
+                            {t("footer.product.demoBadge")}
+                        </Badge>
+                    ),
+                },
+                {
+                    label: t("footer.product.useCases"),
+                    href: "#",
+                },
+                {
+                    label: t("footer.product.caseStudies"),
+                    href: "#",
+                },
+            ],
+        },
+        {
+            label: t("footer.company.label"),
+            items: [
+                {
+                    label: t("footer.company.about"),
+                    href: "#",
+                },
+                {
+                    label: t("footer.company.contact"),
+                    href: "#",
+                },
+                {
+                    label: t("footer.company.support"),
+                    href: "#",
+                },
+                {
+                    label: t("footer.company.documentation"),
+                    href: "#",
+                },
+                {
+                    label: t("footer.company.partnerProgram"),
+                    href: "#",
+                },
+                {
+                    label: t("footer.company.careers"),
+                    href: "#",
+                },
+            ],
+        },
+    ];
 
     return (
         <footer className="bg-primary py-12 md:pt-16">
@@ -82,7 +82,7 @@ export const FooterLarge04 = () => {
                 <div className="flex flex-col gap-12 md:gap-16 xl:flex-row">
                     <div className="flex w-full flex-col gap-6 md:max-w-xs md:gap-8">
                         <UntitledLogo className="h-8 w-min shrink-0" />
-                        <p className="text-md text-tertiary">Built by restaurateurs for restaurants. Rocket Feast unifies your entire hospitality operation in one powerful platform.</p>
+                        <p className="text-md text-tertiary">{t("footer.description")}</p>
                     </div>
                     <nav className="flex flex-1 flex-col-reverse gap-12 md:flex-row md:gap-8 xl:justify-end">
                         <ul className="grid w-full grid-cols-2 gap-8 md:max-w-xs">
@@ -105,21 +105,21 @@ export const FooterLarge04 = () => {
                 </div>
                 <div className="mt-12 flex flex-col-reverse justify-between gap-4 border-t border-secondary pt-8 md:mt-16 md:flex-row md:gap-6">
                     <p className="text-md text-quaternary">
-                        © {new Date().getFullYear()} {regional.company.legalName}. All rights reserved.
+                        © {new Date().getFullYear()} {regional.company.legalName}. {t("footer.copyright")}
                     </p>
 
                     <ul className="flex gap-4">
                         {[
                             {
-                                label: "Terms",
+                                label: t("footer.legal.terms"),
                                 href: "#",
                             },
                             {
-                                label: "Privacy",
+                                label: t("footer.legal.privacy"),
                                 href: "#",
                             },
                             {
-                                label: "Cookies",
+                                label: t("footer.legal.cookies"),
                                 href: "#",
                             },
                         ].map(({ label, href }) => (

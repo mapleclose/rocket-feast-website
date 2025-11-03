@@ -6,33 +6,7 @@ import { AnimatePresence, type Transition, motion } from "motion/react";
 import { Avatar } from "@/components/base/avatar/avatar";
 import { StarIcon } from "@/components/foundations/rating-stars";
 import { RoundButton } from "@/components/marketing/testimonials/round-button";
-
-const reviews = [
-    {
-        quote: "Rocket Feast cut our staffing costs almost in half. Guests order faster, spend more, and service never bottlenecks.",
-        author: {
-            name: "Sienna Hewitt",
-            title: "Operations Manager, Sunset Club",
-            avatarUrl: "https://www.untitledui.com/images/avatars/sienna-hewitt?fm=webp&q=80",
-        },
-    },
-    {
-        quote: "The kitchen flow is completely transformed. We serve more guests in less time with fewer mistakes.",
-        author: {
-            name: "Caitlyn King",
-            title: "Head Chef, The Garden Cafe",
-            avatarUrl: "https://www.untitledui.com/images/avatars/caitlyn-king?fm=webp&q=80",
-        },
-    },
-    {
-        quote: "Finally, a platform built by people who understand how hospitality really works. The ROI was immediate.",
-        author: {
-            name: "Lulu Meyers",
-            title: "Owner, Baan Coffee Roasters",
-            avatarUrl: "https://www.untitledui.com/images/avatars/lulu-meyers?fm=webp&q=80",
-        },
-    },
-];
+import { useI18n } from "@/hooks/use-i18n";
 
 const transition: Transition = {
     type: "spring",
@@ -40,7 +14,9 @@ const transition: Transition = {
 };
 
 export const TestimonialAbstractImage = () => {
+    const { t } = useI18n();
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
+    const reviews = t("testimonials.reviews");
 
     return (
         <section className="bg-primary py-16 lg:py-24">
@@ -141,7 +117,7 @@ export const TestimonialAbstractImage = () => {
                                 }}
                                 className="flex origin-bottom-left gap-4 will-change-transform"
                             >
-                                <Avatar src={reviews[currentReviewIndex].author.avatarUrl} alt={reviews[currentReviewIndex].author.name} size="xl" />
+                                <Avatar src={`https://www.untitledui.com/images/avatars/${reviews[currentReviewIndex].author.name.toLowerCase().replace(" ", "-")}?fm=webp&q=80`} alt={reviews[currentReviewIndex].author.name} size="xl" />
                                 <figcaption className="flex flex-col gap-0.5">
                                     <p className="text-lg font-semibold whitespace-nowrap text-primary">{reviews[currentReviewIndex].author.name}</p>
                                     <cite className="text-md whitespace-nowrap text-tertiary not-italic">{reviews[currentReviewIndex].author.title}</cite>

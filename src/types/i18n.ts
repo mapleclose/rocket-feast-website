@@ -46,57 +46,228 @@ export interface ContentConfig {
     common: {
         learnMore: string;
         getStarted: string;
+        getStartedFree: string;
         contactUs: string;
         signUp: string;
         signIn: string;
+        logIn: string;
         readMore: string;
         comingSoon: string;
+        watchDemo: string;
+        bookDemo: string;
     };
 
     // Navigation
     nav: {
-        home: string;
-        features: string;
+        products: string;
+        services: string;
         pricing: string;
+        resources: string;
         about: string;
+        aboutUs: string;
+        press: string;
+        careers: string;
+        legal: string;
+        support: string;
         contact: string;
-        blog: string;
+        sitemap: string;
+        cookieSettings: string;
     };
 
     // Hero section
     hero: {
         title: string;
         subtitle: string;
-        cta: string;
-        secondaryCta: string;
+        ctaPrimary: string;
+        ctaSecondary: string;
     };
 
-    // Features
-    features: {
-        title: string;
-        subtitle: string;
-        // Individual features can be added here or managed separately
+    // Social Proof
+    socialProof: {
+        text: string;
     };
 
-    // Pricing
-    pricing: {
+    // Why Section (Features Icons and Image 03)
+    why: {
+        badge: string;
         title: string;
         subtitle: string;
-        perMonth: string;
-        perYear: string;
-        billedMonthly: string;
-        billedAnnually: string;
-        startTrial: string;
-        choosePlan: string;
+        guestOrdering: {
+            title: string;
+            description: string;
+        };
+        operatorPlatform: {
+            title: string;
+            description: string;
+        };
+    };
+
+    // Built For Section (Features Icons and Image 02)
+    builtFor: {
+        badge: string;
+        title: string;
+        subtitle: string;
+        multiVenue: {
+            title: string;
+            description: string;
+        };
+        highVolume: {
+            title: string;
+            description: string;
+        };
+        qualityFocused: {
+            title: string;
+            description: string;
+        };
+    };
+
+    // Metrics Section
+    metrics: {
+        title: string;
+        subtitle: string;
+        smallerTeams: {
+            value: string;
+            label: string;
+            description: string;
+        };
+        higherAov: {
+            value: string;
+            label: string;
+            description: string;
+        };
+        fasterDelivery: {
+            value: string;
+            label: string;
+            description: string;
+        };
+        satisfaction: {
+            value: string;
+            label: string;
+            description: string;
+        };
+    };
+
+    // Complete Platform Section (Features Icons and Mockup)
+    completePlatform: {
+        badge: string;
+        title: string;
+        subtitle: string;
+        qrPos: {
+            title: string;
+            description: string;
+        };
+        inventory: {
+            title: string;
+            description: string;
+        };
+        staffAutomation: {
+            title: string;
+            description: string;
+        };
+        loyalty: {
+            title: string;
+            description: string;
+        };
+    };
+
+    // How It Works Section (Alternating Layout)
+    howItWorks: {
+        badge: string;
+        title: string;
+        subtitle: string;
+        guestOrdering: {
+            title: string;
+            description: string;
+            features: [string, string, string];
+        };
+        kitchen: {
+            title: string;
+            description: string;
+            features: [string, string, string];
+        };
+        staff: {
+            title: string;
+            description: string;
+            features: [string, string, string];
+        };
+        customerLoyalty: {
+            title: string;
+            description: string;
+            features: [string, string, string];
+        };
+    };
+
+    // Pricing Section
+    pricingSection: {
+        badge: string;
+        title: string;
+        subtitle: string;
+        starter: {
+            title: string;
+            description: string;
+            features: [string, string, string, string, string, string, string, string, string];
+        };
+        professional: {
+            title: string;
+            description: string;
+            features: [string, string, string, string];
+        };
+        enterprise: {
+            title: string;
+            description: string;
+            features: [string, string, string, string, string];
+        };
+    };
+
+    // Testimonials
+    testimonials: {
+        reviews: Array<{
+            quote: string;
+            author: {
+                name: string;
+                title: string;
+            };
+        }>;
+    };
+
+    // CTA Section
+    cta: {
+        badge: string;
+        title: string;
+        titleMobile: string;
+        subtitle: string;
+        ctaPrimary: string;
+        ctaSecondary: string;
     };
 
     // Footer
     footer: {
-        company: string;
-        product: string;
-        resources: string;
-        legal: string;
-        allRightsReserved: string;
+        description: string;
+        product: {
+            label: string;
+            features: string;
+            pricing: string;
+            integrations: string;
+            demo: string;
+            demoBadge: string;
+            useCases: string;
+            caseStudies: string;
+        };
+        company: {
+            label: string;
+            about: string;
+            contact: string;
+            support: string;
+            documentation: string;
+            partnerProgram: string;
+            careers: string;
+        };
+        legal: {
+            terms: string;
+            privacy: string;
+            cookies: string;
+        };
+        copyright: string;
     };
 }
 
