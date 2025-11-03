@@ -10,9 +10,6 @@ import { UntitledLogoMinimal } from "@/components/foundations/logo/untitledui-lo
 import { cx } from "@/utils/cx";
 import { useI18n } from "@/hooks/use-i18n";
 import { CountrySelector } from "./country-selector";
-import { DropdownMenuFeatureCard } from "./dropdown-menu-feature-card";
-import { DropdownMenuSimpleWithFooter } from "./dropdown-menu-simple-with-footer";
-import { DropdownMenuWithTwoColsAndLinksAndFooter } from "./dropdown-menu-with-two-cols-and-links-and-footer";
 
 type HeaderNavItem = {
     label: string;
@@ -54,14 +51,14 @@ const MobileFooter = () => {
     const { t } = useI18n();
 
     const footerNavItems = [
-        { label: t("nav.aboutUs"), href: "/" },
-        { label: t("nav.press"), href: "/products" },
-        { label: t("nav.careers"), href: "/resources" },
-        { label: t("nav.legal"), href: "/pricing" },
-        { label: t("nav.support"), href: "/pricing" },
-        { label: t("nav.contact"), href: "/pricing" },
-        { label: t("nav.sitemap"), href: "/pricing" },
-        { label: t("nav.cookieSettings"), href: "/pricing" },
+        { label: t("nav.aboutUs"), href: "/about" },
+        { label: t("nav.press"), href: "/press" },
+        { label: t("nav.careers"), href: "/careers" },
+        { label: t("nav.legal"), href: "/legal" },
+        { label: t("nav.support"), href: "/support" },
+        { label: t("nav.contact"), href: "/contact" },
+        { label: t("nav.sitemap"), href: "/sitemap" },
+        { label: t("nav.cookieSettings"), href: "/cookie-settings" },
     ];
 
     return (
@@ -102,11 +99,11 @@ export const Header = ({ items, isFullWidth, isFloating, className }: HeaderProp
     const headerRef = useRef<HTMLElement>(null);
 
     const defaultHeaderNavItems: HeaderNavItem[] = [
-        { label: t("nav.products"), href: "/products", menu: <DropdownMenuSimpleWithFooter /> },
-        { label: t("nav.services"), href: "/Services", menu: <DropdownMenuFeatureCard /> },
+        { label: t("nav.features"), href: "/features" },
+        { label: t("nav.caseStudies"), href: "/case-studies" },
         { label: t("nav.pricing"), href: "/pricing" },
-        { label: t("nav.resources"), href: "/resources", menu: <DropdownMenuWithTwoColsAndLinksAndFooter /> },
-        { label: t("nav.about"), href: "/about" },
+        { label: t("nav.faqs"), href: "/faqs" },
+        { label: t("nav.contact"), href: "/contact" },
     ];
 
     const navItems = items || defaultHeaderNavItems;
@@ -129,8 +126,12 @@ export const Header = ({ items, isFullWidth, isFloating, className }: HeaderProp
                     )}
                 >
                     <div className="flex flex-1 items-center gap-5">
-                        <UntitledLogo className="h-8 md:max-lg:hidden" />
-                        <UntitledLogoMinimal className="hidden h-8 md:inline-block lg:hidden" />
+                        <a href="/">
+                            <UntitledLogo className="h-8 md:max-lg:hidden" />
+                        </a>
+                        <a href="/" className="hidden md:inline-block lg:hidden">
+                            <UntitledLogoMinimal className="h-8" />
+                        </a>
 
                         {/* Desktop navigation */}
                         <nav className="max-md:hidden">

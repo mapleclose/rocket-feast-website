@@ -85,14 +85,14 @@ export function I18nExample() {
                         <p className="text-sm text-tertiary">Monthly Plan</p>
                         <p className="text-2xl font-bold">
                             {formatCurrency(monthlyPrice)}
-                            <span className="text-base font-normal text-tertiary"> {t("pricing.perMonth")}</span>
+                            <span className="text-base font-normal text-tertiary"> per month</span>
                         </p>
                     </div>
                     <div>
                         <p className="text-sm text-tertiary">Yearly Plan</p>
                         <p className="text-2xl font-bold">
                             {formatCurrency(yearlyPrice)}
-                            <span className="text-base font-normal text-tertiary"> {t("pricing.perYear")}</span>
+                            <span className="text-base font-normal text-tertiary"> per year</span>
                         </p>
                     </div>
                     <div className="text-sm text-tertiary">

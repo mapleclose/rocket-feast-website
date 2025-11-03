@@ -48,7 +48,7 @@ export const FeaturesAlternatingLayout01 = () => {
                             {t("howItWorks.guestOrdering.description")}
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 pl-2 md:gap-5 md:pl-4">
-                            {t("howItWorks.guestOrdering.features").map((feat) => (
+                            {t("howItWorks.guestOrdering.features").map((feat: string) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
                         </ul>
@@ -80,7 +80,7 @@ export const FeaturesAlternatingLayout01 = () => {
                             {t("howItWorks.kitchen.description")}
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 pl-2 md:gap-5 md:pl-4">
-                            {t("howItWorks.kitchen.features").map((feat) => (
+                            {t("howItWorks.kitchen.features").map((feat: string) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
                         </ul>
@@ -112,7 +112,7 @@ export const FeaturesAlternatingLayout01 = () => {
                             {t("howItWorks.staff.description")}
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 pl-2 md:gap-5 md:pl-4">
-                            {t("howItWorks.staff.features").map((feat) => (
+                            {t("howItWorks.staff.features").map((feat: string) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
                         </ul>
@@ -144,7 +144,7 @@ export const FeaturesAlternatingLayout01 = () => {
                             {t("howItWorks.customerLoyalty.description")}
                         </p>
                         <ul className="mt-8 flex flex-col gap-4 pl-2 md:gap-5 md:pl-4">
-                            {t("howItWorks.customerLoyalty.features").map((feat) => (
+                            {t("howItWorks.customerLoyalty.features").map((feat: string) => (
                                 <CheckItemText key={feat} size="md" iconStyle="outlined" color="primary" text={feat} />
                             ))}
                         </ul>

@@ -59,9 +59,14 @@ export interface ContentConfig {
 
     // Navigation
     nav: {
+        home: string;
+        features: string;
+        caseStudies: string;
+        pricing: string;
+        faqs: string;
+        contact: string;
         products: string;
         services: string;
-        pricing: string;
         resources: string;
         about: string;
         aboutUs: string;
@@ -69,7 +74,6 @@ export interface ContentConfig {
         careers: string;
         legal: string;
         support: string;
-        contact: string;
         sitemap: string;
         cookieSettings: string;
     };
@@ -228,6 +232,239 @@ export interface ContentConfig {
                 title: string;
             };
         }>;
+    };
+
+    // Features Page
+    features: {
+        page: {
+            badge: string;
+            title: string;
+            subtitle: string;
+        };
+    };
+
+    // Pricing Page
+    pricing: {
+        page: {
+            badge: string;
+            title: string;
+            subtitle: string;
+        };
+        table: {
+            tiers: {
+                starter: {
+                    name: string;
+                    description: string;
+                };
+                professional: {
+                    name: string;
+                    description: string;
+                };
+                enterprise: {
+                    name: string;
+                    description: string;
+                };
+            };
+            sections: {
+                ordering: {
+                    name: string;
+                    features: {
+                        qrOrdering: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                        pos: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                        inAppPayments: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                        thirdPartyPayments: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                    };
+                };
+                operations: {
+                    name: string;
+                    features: {
+                        analytics: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                        inventory: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                        dietary: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                        advancedAnalytics: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                    };
+                };
+                customer: {
+                    name: string;
+                    features: {
+                        feedback: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                        discounts: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                        loyalty: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                    };
+                };
+                staff: {
+                    name: string;
+                    features: {
+                        taskManagement: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                        performance: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                        roster: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                        issues: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                    };
+                };
+                integrations: {
+                    name: string;
+                    features: {
+                        customIntegrations: {
+                            name: string;
+                            tooltip: {
+                                title: string;
+                                description: string;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    };
+
+    // Case Studies
+    caseStudies: {
+        page: {
+            badge: string;
+            title: string;
+            subtitle: string;
+        };
+        sunsetClub: {
+            badge: string;
+            title: string;
+            imageUrl: string;
+            author: {
+                name: string;
+                title: string;
+                company: string;
+            };
+            sections: [string, string];
+            outcomes: {
+                title: string;
+                description: string;
+            };
+            ctaPrimary: string;
+            ctaSecondary: string;
+        };
+        gardenCafe: {
+            badge: string;
+            title: string;
+            imageUrl: string;
+            author: {
+                name: string;
+                title: string;
+                company: string;
+            };
+            sections: [string, string];
+            outcomes: {
+                title: string;
+                description: string;
+            };
+            ctaPrimary: string;
+            ctaSecondary: string;
+        };
+        baanCoffee: {
+            badge: string;
+            title: string;
+            imageUrl: string;
+            author: {
+                name: string;
+                title: string;
+                company: string;
+            };
+            sections: [string, string];
+            outcomes: {
+                title: string;
+                description: string;
+            };
+            ctaPrimary: string;
+            ctaSecondary: string;
+        };
     };
 
     // CTA Section
