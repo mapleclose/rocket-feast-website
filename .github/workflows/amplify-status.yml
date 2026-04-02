@@ -1,0 +1,76 @@
+name: Amplify Deploy Status
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  amplify-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-southeast-2
+
+      - name: Wait for Amplify build to start
+        id: find-build
+        run: |
+          APP_ID="dw6aqj65gck17"
+          COMMIT_SHA="${{ github.sha }}"
+          MAX_ATTEMPTS=10
+
+          for i in $(seq 1 $MAX_ATTEMPTS); do
+            JOB_ID=$(aws amplify list-jobs --app-id $APP_ID --branch-name main --max-items 5 \
+              --query "jobSummaries[?commitId=='${COMMIT_SHA}'].jobId | [0]" --output text 2>/dev/null)
+
+            if [ "$JOB_ID" != "None" ] && [ -n "$JOB_ID" ]; then
+              echo "job_id=$JOB_ID" >> $GITHUB_OUTPUT
+              echo "Found Amplify job: $JOB_ID"
+              break
+            fi
+
+            echo "Waiting for Amplify build to start (attempt $i/$MAX_ATTEMPTS)..."
+            sleep 15
+          done
+
+          if [ -z "$JOB_ID" ] || [ "$JOB_ID" = "None" ]; then
+            echo "job_id=" >> $GITHUB_OUTPUT
+            echo "::warning::Could not find Amplify build for commit $COMMIT_SHA"
+          fi
+
+      - name: Monitor Amplify build
+        if: steps.find-build.outputs.job_id != ''
+        run: |
+          APP_ID="dw6aqj65gck17"
+          JOB_ID="${{ steps.find-build.outputs.job_id }}"
+
+          while true; do
+            STATUS=$(aws amplify get-job --app-id $APP_ID --branch-name main --job-id $JOB_ID \
+              --query "job.summary.status" --output text)
+
+            echo "Build status: $STATUS"
+
+            case $STATUS in
+              SUCCEED)
+                echo "Amplify build succeeded!"
+                echo "Preview: https://main.${APP_ID}.amplifyapp.com"
+                exit 0
+                ;;
+              FAILED)
+                echo "::error::Amplify build failed"
+                aws amplify get-job --app-id $APP_ID --branch-name main --job-id $JOB_ID \
+                  --query "job.steps[?status=='FAILED']" --output json
+                exit 1
+                ;;
+              CANCELLED)
+                echo "::error::Amplify build was cancelled"
+                exit 1
+                ;;
+              *)
+                sleep 30
+                ;;
+            esac
+          done
