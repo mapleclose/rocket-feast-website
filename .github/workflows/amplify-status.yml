@@ -23,8 +23,8 @@ jobs:
           MAX_ATTEMPTS=10
 
           for i in $(seq 1 $MAX_ATTEMPTS); do
-            JOB_ID=$(aws amplify list-jobs --app-id $APP_ID --branch-name main --max-items 5 \
-              --query "jobSummaries[?commitId=='${COMMIT_SHA}'].jobId | [0]" --output text 2>/dev/null)
+            JOB_ID=$(aws amplify list-jobs --app-id $APP_ID --branch-name main \
+              --query "jobSummaries[?commitId=='${COMMIT_SHA}'].jobId | [0]" --output text 2>/dev/null | head -1)
 
             if [ "$JOB_ID" != "None" ] && [ -n "$JOB_ID" ]; then
               echo "job_id=$JOB_ID" >> $GITHUB_OUTPUT
