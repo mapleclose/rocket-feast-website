@@ -140,11 +140,11 @@ const LoginPage = () => {
 
                     <div className="flex w-full flex-col gap-3 text-center">
                         <h1 className="font-display text-display-sm font-semibold text-primary">
-                            {step === "otp" ? "Check your email" : step === "success" ? "You\u2019re all set" : "Log in to your account"}
+                            {step === "otp" ? "Enter verification code" : step === "success" ? "You\u2019re all set" : "Log in to your account"}
                         </h1>
                         <p className="text-md text-tertiary">
                             {step === "otp"
-                                ? "We sent a verification code to your email."
+                                ? "Open your authenticator app and enter the 6-digit code."
                                 : step === "success"
                                   ? "Authentication successful. Redirecting\u2026"
                                   : "Welcome back! Please enter your details."}
