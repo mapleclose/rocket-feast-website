@@ -2,11 +2,11 @@
 # passes. Major bumps and github_actions ecosystem bumps (any version)
 # fall through to manual review.
 #
-# Why github_actions is excluded: the workflow's GITHUB_TOKEN can't
-# update files under .github/workflows/* (a GitHub security restriction
-# to prevent runaway workflow self-modification). Dependabot PRs for
-# actions/* always touch those files, so auto-merge would always fail.
-# We do manual merge for those.
+# **PAUSED 2026-05-14**: re-enable by removing `if: false` on the
+# dependabot job below. Pause is in effect while PR-level CI is being
+# rolled out across all mapleclose repos so auto-merge has real gates
+# (without PR-level CI + required-status-checks, auto-merge ships
+# unverified changes to the deploy pipeline).
 #
 # Requires (already in place at mapleclose repo-settings level):
 #   - allow_auto_merge: true
@@ -23,7 +23,8 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: github.actor == 'dependabot[bot]'
+    # PAUSED — see comment block above. Remove this line to re-enable.
+    if: false && github.actor == 'dependabot[bot]'
     steps:
       - name: Fetch metadata
         id: metadata
