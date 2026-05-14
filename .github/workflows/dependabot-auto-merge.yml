@@ -14,7 +14,19 @@
 #   - CI checks gating the target branch (where applicable)
 name: Dependabot auto-merge
 
-on: pull_request
+on:
+  pull_request:
+    # Only trigger on PRs that touch files Dependabot actually changes —
+    # so human PRs (which never touch lockfiles or workflows) don't
+    # generate a "skipped" check entry in their status rollup.
+    paths:
+      - 'package.json'
+      - 'package-lock.json'
+      - 'yarn.lock'
+      - 'pnpm-lock.yaml'
+      - 'composer.json'
+      - 'composer.lock'
+      - '.github/workflows/**'
 
 permissions:
   contents: write
