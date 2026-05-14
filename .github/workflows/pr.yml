@@ -11,6 +11,11 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    # Skip workflow-only Dependabot bumps (github_actions, docker) — they
+    # don't change app code and the Dependabot auto-merge workflow's
+    # own if-filter already excludes them from auto-merging. Skipped
+    # jobs report as success for required-status-check rules.
+    if: ${{ !startsWith(github.head_ref, 'dependabot/github_actions/') && !startsWith(github.head_ref, 'dependabot/docker/') }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v6
