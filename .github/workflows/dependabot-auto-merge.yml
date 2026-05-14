@@ -23,7 +23,6 @@ on:
       - 'pnpm-lock.yaml'
       - 'composer.json'
       - 'composer.lock'
-      - '.github/workflows/**'
 
 permissions:
   contents: write
