@@ -1,6 +1,12 @@
-# Auto-merges Dependabot PRs for patch + minor version bumps and any
-# github-actions ecosystem update, after CI passes. Major bumps fall
-# through to manual review.
+# Auto-merges Dependabot PRs for patch + minor version bumps after CI
+# passes. Major bumps and github_actions ecosystem bumps (any version)
+# fall through to manual review.
+#
+# Why github_actions is excluded: the workflow's GITHUB_TOKEN can't
+# update files under .github/workflows/* (a GitHub security restriction
+# to prevent runaway workflow self-modification). Dependabot PRs for
+# actions/* always touch those files, so auto-merge would always fail.
+# We do manual merge for those.
 #
 # Requires (already in place at mapleclose repo-settings level):
 #   - allow_auto_merge: true
@@ -21,15 +27,16 @@ jobs:
     steps:
       - name: Fetch metadata
         id: metadata
-        uses: dependabot/fetch-metadata@v3
+        uses: dependabot/fetch-metadata@v2
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
 
-      - name: Enable auto-merge for safe updates
+      - name: Enable auto-merge for safe (non-workflow) updates
         if: |
-          steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
-          steps.metadata.outputs.update-type == 'version-update:semver-minor' ||
-          steps.metadata.outputs.package-ecosystem == 'github_actions'
+          steps.metadata.outputs.package-ecosystem != 'github_actions' && (
+            steps.metadata.outputs.update-type == 'version-update:semver-patch' ||
+            steps.metadata.outputs.update-type == 'version-update:semver-minor'
+          )
         run: gh pr merge --auto --squash "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
