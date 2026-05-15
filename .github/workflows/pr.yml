@@ -4,6 +4,17 @@ on:
   pull_request:
     branches: [main]
 
+# Dedupe overlapping events on the same PR. opened+labeled fires
+# back-to-back when a PR is created with a label, and synchronize
+# fires for every push — without this, each PR can burn N× the CI
+# minutes it actually needs. Keyed on commit SHA (rather than PR
+# number) so events targeting the same commit collapse cleanly even
+# across event types — consistent with the parent fix in
+# rocket-feast-admin#308.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.head.sha || github.sha }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
