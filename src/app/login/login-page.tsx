@@ -7,10 +7,19 @@ import { Input } from "@/components/base/input/input";
 import { Form } from "@/components/base/form/form";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { Google, Apple, Facebook } from "@/components/foundations/social-icons";
-import { CheckCircle } from "@untitledui/icons";
+import { CheckCircle, Copy01 } from "@untitledui/icons";
 import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-icon";
 
 type Step = "credentials" | "otp" | "success";
+
+const getOtpSetupKey = (otpAuthUrl: string): string => {
+    if (!otpAuthUrl) return "";
+    try {
+        return new URL(otpAuthUrl).searchParams.get("secret") || "";
+    } catch {
+        return "";
+    }
+};
 
 const LoginPage = () => {
     const searchParams = useSearchParams();
@@ -21,12 +30,16 @@ const LoginPage = () => {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const [step1Token, setStep1Token] = useState("");
+    const [otpAuthUrl, setOtpAuthUrl] = useState("");
+    const [copiedSetupKey, setCopiedSetupKey] = useState(false);
     const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+    const otpSetupKey = getOtpSetupKey(otpAuthUrl);
 
     const handleCredentialsSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setError("");
         setLoading(true);
+        setOtpAuthUrl("");
 
         const formData = new FormData(e.currentTarget);
         const email = formData.get("email") as string;
@@ -49,6 +62,7 @@ const LoginPage = () => {
 
             if (data.needs_otp) {
                 setStep1Token(data.step1_token);
+                setOtpAuthUrl(data.otpAuthUrl || data.otp_auth_url || "");
                 setStep("otp");
                 setLoading(false);
                 // Focus first OTP input after render
@@ -66,6 +80,14 @@ const LoginPage = () => {
             setError("Connection error. Please try again.");
             setLoading(false);
         }
+    };
+
+    const handleCopySetupKey = async () => {
+        const value = otpSetupKey || otpAuthUrl;
+        if (!value) return;
+        await navigator.clipboard.writeText(value);
+        setCopiedSetupKey(true);
+        window.setTimeout(() => setCopiedSetupKey(false), 1200);
     };
 
     const handleOtpSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -144,7 +166,9 @@ const LoginPage = () => {
                         </h1>
                         <p className="text-md text-tertiary">
                             {step === "otp"
-                                ? "Open your authenticator app and enter the 6-digit code."
+                                ? otpAuthUrl
+                                    ? "Add this account to your authenticator, then enter the 6-digit code."
+                                    : "Open your authenticator app and enter the 6-digit code."
                                 : step === "success"
                                   ? "Authentication successful. Redirecting\u2026"
                                   : "Welcome back! Please enter your details."}
@@ -212,6 +236,23 @@ const LoginPage = () => {
                 {/* OTP form */}
                 {step === "otp" && (
                     <Form onSubmit={handleOtpSubmit} className="flex w-full flex-col gap-6">
+                        {otpAuthUrl && (
+                            <div className="flex w-full flex-col gap-3 rounded-lg border border-primary bg-primary p-4 shadow-xs">
+                                <div className="flex flex-col gap-1">
+                                    <p className="text-sm font-semibold text-primary">Authenticator setup key</p>
+                                    <p className="text-sm text-tertiary">Use this key if your app cannot open the setup link.</p>
+                                </div>
+                                <div className="flex min-w-0 items-center gap-2">
+                                    <code className="min-w-0 flex-1 break-all rounded-md bg-secondary px-2.5 py-2 font-mono text-xs text-primary">
+                                        {otpSetupKey || otpAuthUrl}
+                                    </code>
+                                    <Button type="button" size="sm" color="secondary" iconLeading={Copy01} onClick={handleCopySetupKey}>
+                                        {copiedSetupKey ? "Copied" : "Copy"}
+                                    </Button>
+                                </div>
+                            </div>
+                        )}
+
                         <div className="flex justify-center gap-2">
                             {otp.map((digit, idx) => (
                                 <input
