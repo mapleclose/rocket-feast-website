@@ -28,7 +28,7 @@ jobs:
     # jobs report as success for required-status-check rules.
     if: ${{ !startsWith(github.head_ref, 'dependabot/github_actions/') && !startsWith(github.head_ref, 'dependabot/docker/') }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - uses: actions/setup-node@v6
         with:
           node-version: '22'
