@@ -9,6 +9,7 @@
         "test": "vitest run"
     },
     "dependencies": {
+        "@aws-sdk/client-secrets-manager": "^3.1161.0",
         "@tailwindcss/postcss": "^4.3.0",
         "@tailwindcss/typography": "^0.5.16",
         "@untitledui/file-icons": "^0.0.9",

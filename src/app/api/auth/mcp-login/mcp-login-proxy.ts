@@ -12,13 +12,14 @@
  * - Known-device cookie (rocket-feast-mcp#153): only `__Host-rf_mcp_device` is forwarded
  *   to the MCP as `Cookie`, and only the MCP's `Set-Cookie` for that name is relayed back.
  * - Status passthrough: the MCP's status, body and `Retry-After` (429/403 etc.) are relayed.
- * - Signed client IP (optional, `MCP_LOGIN_CLIENT_IP_SECRET`): lets the MCP key its login
- *   rate limit on the browser's IP instead of this server's. See CLIENT_IP_HEADERS.
+ * - Signed client IP (optional): lets the MCP key its login rate limit on the browser's IP
+ *   instead of this server's. See CLIENT_IP_HEADERS and client-ip-secret.ts.
  *
  * Never log cookies, credentials, tokens or the signing secret.
  */
 import { createHmac } from "node:crypto";
 import { isIP } from "node:net";
+import { resolveClientIpSecret } from "./client-ip-secret";
 
 export const DEFAULT_ALLOWED_ORIGINS = ["https://mcp.rocketfeast.com", "https://staging-mcp.rocketfeast.com"];
 
@@ -39,7 +40,7 @@ export const CLIENT_IP_HEADERS = {
     signature: "x-rf-login-client-ip-sig",
 } as const;
 const CLIENT_IP_SIGNATURE_CONTEXT = "rf-mcp-login-client-ip:v1";
-const CLIENT_IP_SECRET_MIN_LENGTH = 32;
+export const CLIENT_IP_SECRET_MIN_LENGTH = 32;
 
 const FORWARDED_FIELDS = ["email", "password", "otp", "step1_token", "state"] as const;
 const UPSTREAM_TIMEOUT_MS = 15_000;
@@ -49,10 +50,13 @@ const SCRIPT_SCHEMES = new Set(["javascript:", "data:", "vbscript:", "blob:", "f
 type Env = Record<string, string | undefined>;
 type FetchLike = (input: string, init: RequestInit) => Promise<Response>;
 
+export type ResolveClientIpSecret = (env: Env) => Promise<string | undefined>;
+
 export interface McpLoginOptions {
     env?: Env;
     fetch?: FetchLike;
     now?: () => number;
+    resolveSecret?: ResolveClientIpSecret;
 }
 
 /** Exact origins from a comma-separated env value; the production and staging MCPs when unset. */
@@ -122,11 +126,11 @@ function clientIp(request: Request, env: Env): string | null {
     return isIP(candidate) ? candidate : null;
 }
 
-function signedClientIpHeaders(request: Request, env: Env, now: () => number): Record<string, string> {
-    const secret = env.MCP_LOGIN_CLIENT_IP_SECRET;
-    if (!secret || secret.length < CLIENT_IP_SECRET_MIN_LENGTH) return {};
+async function signedClientIpHeaders(request: Request, env: Env, now: () => number, resolveSecret: ResolveClientIpSecret): Promise<Record<string, string>> {
     const ip = clientIp(request, env);
     if (!ip) return {};
+    const secret = await resolveSecret(env);
+    if (!secret || secret.length < CLIENT_IP_SECRET_MIN_LENGTH) return {};
     const timestamp = String(Math.floor(now() / 1000));
     const signature = createHmac("sha256", secret).update(`${CLIENT_IP_SIGNATURE_CONTEXT}:${timestamp}:${ip}`).digest("hex");
     return { [CLIENT_IP_HEADERS.ip]: ip, [CLIENT_IP_HEADERS.timestamp]: timestamp, [CLIENT_IP_HEADERS.signature]: signature };
@@ -148,6 +152,7 @@ export async function handleMcpLogin(request: Request, options: McpLoginOptions 
     const env = options.env ?? process.env;
     const fetchImpl: FetchLike = options.fetch ?? ((input, init) => fetch(input, init));
     const now = options.now ?? Date.now;
+    const resolveSecret = options.resolveSecret ?? resolveClientIpSecret;
 
     let body: unknown;
     try {
@@ -175,7 +180,7 @@ export async function handleMcpLogin(request: Request, options: McpLoginOptions 
     const headers: Record<string, string> = { "Content-Type": "application/json", Accept: "application/json" };
     const deviceCookie = knownDeviceCookie(request.headers.get("cookie"));
     if (deviceCookie) headers.Cookie = deviceCookie;
-    Object.assign(headers, signedClientIpHeaders(request, env, now));
+    Object.assign(headers, await signedClientIpHeaders(request, env, now, resolveSecret));
 
     let upstream: Response;
     try {
