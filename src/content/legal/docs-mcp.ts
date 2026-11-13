@@ -1,5 +1,5 @@
 import { SITE_LINKS } from "../../utils/site-links";
-import { SUPPORT_EMAIL_PLACEHOLDER } from "./shared";
+import { MONEY_REFUSED, MONEY_REQUESTS, PRIVACY_EMAIL_LINK, SUPPORT_EMAIL_PLACEHOLDER } from "./shared";
 import type { LegalDocument } from "./types";
 
 /** The production server address (rocket-feast-mcp `MCP_DOMAIN` + `/mcp`). */
@@ -25,7 +25,7 @@ export const docsMcp: LegalDocument = {
     sections: [
         {
             id: "what-it-does",
-            title: "What the connector does",
+            title: "What the Connector Does",
             blocks: [
                 {
                     type: "p",
@@ -44,6 +44,7 @@ export const docsMcp: LegalDocument = {
                         "staff, roles and teams; rosters, shifts and leave;",
                         "inventory, suppliers, stock and purchasing;",
                         "tables, reservations and sessions; course pacing;",
+                        "admissions: registrations, check-in and check-out, and wristbands;",
                         "discounts, taxes and charges, expenses and sales reports;",
                         "tasks and performance, issues, the dashboard and venue settings.",
                     ],
@@ -60,7 +61,7 @@ export const docsMcp: LegalDocument = {
         },
         {
             id: "before-you-start",
-            title: "Before you start",
+            title: "Before You Start",
             blocks: [
                 {
                     type: "ul",
@@ -70,7 +71,7 @@ export const docsMcp: LegalDocument = {
                         "Keep this address handy. It is the same for every venue:",
                     ],
                 },
-                { type: "copy", label: "Server address", value: MCP_SERVER_URL },
+                { type: "copy", label: "Server Address", value: MCP_SERVER_URL },
             ],
         },
         {
@@ -92,7 +93,7 @@ export const docsMcp: LegalDocument = {
                     ],
                 },
                 { type: "actions", links: [{ label: "Add to Claude", href: CLAUDE_ADD_CONNECTOR_URL, primary: true }] },
-                { type: "h3", text: "Adding it by hand" },
+                { type: "h3", text: "Adding It by Hand" },
                 {
                     type: "p",
                     text: "In Claude, open **Customize › Connectors**, press **Add**, choose **Add custom connector**, name it Rocket Feast and paste the server address. Then follow steps 3 to 5.",
@@ -102,7 +103,7 @@ export const docsMcp: LegalDocument = {
                     type: "p",
                     text: "On a Team or Enterprise plan, a Claude owner adds the connector once, in **Organization settings › Connectors**. Each person then presses **Connect** and signs in with their own Rocket Feast account. In **Settings › AI**, **Copy Link for Them** gives you a link to send to your Claude owner.",
                 },
-                { type: "h3", text: "Claude Code and other MCP clients" },
+                { type: "h3", text: "Claude Code and Other MCP Clients" },
                 {
                     type: "p",
                     text: `Any MCP client that supports remote servers with OAuth can use the server address. In Claude Code, run \`claude mcp add --transport http rocket-feast ${MCP_SERVER_URL}\`, then \`/mcp\` to sign in. The sign-in page warns you when an app on your own computer asks for access; allow it only if you started the connection yourself.`,
@@ -128,7 +129,7 @@ export const docsMcp: LegalDocument = {
                         "In a chat, mention Rocket Feast with **@** to use it.",
                     ],
                 },
-                { type: "copy", label: "Server address", value: MCP_SERVER_URL },
+                { type: "copy", label: "Server Address", value: MCP_SERVER_URL },
                 {
                     type: "note",
                     text: "Once Rocket Feast is listed in Claude's and ChatGPT's directories, **Settings › AI** will open the listing instead, and you'll only need to press **Connect**.",
@@ -137,7 +138,7 @@ export const docsMcp: LegalDocument = {
         },
         {
             id: "scopes",
-            title: "Scopes: reading and changing",
+            title: "Scopes: Reading and Changing",
             blocks: [
                 {
                     type: "p",
@@ -145,13 +146,13 @@ export const docsMcp: LegalDocument = {
                 },
                 {
                     type: "table",
-                    head: ["Scope", "On the sign-in page", "What it allows"],
+                    head: ["Scope", "On the Sign-in Page", "What It Allows"],
                     rows: [
                         ["`read`", "View your restaurant data", "The look-up tools, such as `menu_read` and `orders_read`. They never change anything."],
                         [
                             "`write`",
                             "Make changes in Rocket Feast on your behalf",
-                            "The change tools, such as `menu_write` and `orders_write`. Claude and ChatGPT mark these as tools that change data and ask before using them.",
+                            "The change tools, such as `menu_write` and `orders_write`. They are marked as tools that change data, so Claude and ChatGPT can ask before using them.",
                         ],
                     ],
                 },
@@ -160,28 +161,25 @@ export const docsMcp: LegalDocument = {
                     items: [
                         "Neither scope gives more than your role allows. If your role can't edit the menu, the app can't either.",
                         "A connection granted only `read` can't make changes.",
-                        "Every change is saved in Rocket Feast under your name, as if you had made it yourself.",
+                        "Every change is saved in Rocket Feast under your name, marked as made through a connected app.",
                     ],
                 },
             ],
         },
         {
             id: "money",
-            title: "Money actions become approval requests",
+            title: "Money Actions and Approval Requests",
             blocks: [
                 {
                     type: "p",
-                    text: "A connected app can't move money. Refunds, bill discounts, item discounts and comps are sent as **approval requests**, even if you could approve them yourself. A person with approval rights then approves or declines each one in Rocket Feast.",
+                    text: "Apps connected through the Rocket Feast sign-in (such as Claude and ChatGPT) can't move money.",
                 },
-                {
-                    type: "p",
-                    text: "A connected app also can't approve or decline requests, take payments or mark bills paid, give points or vouchers, reopen or merge bills, or create or pay expenses. Do those in the Rocket Feast admin.",
-                },
+                { type: "ul", items: [MONEY_REQUESTS, MONEY_REFUSED] },
             ],
         },
         {
             id: "revoke",
-            title: "Revoke access",
+            title: "Revoke Access",
             blocks: [
                 {
                     type: "p",
@@ -189,7 +187,7 @@ export const docsMcp: LegalDocument = {
                 },
                 {
                     type: "table",
-                    head: ["AI permission", "Connect an app", "See connected apps", "Revoke"],
+                    head: ["AI Permission", "Connect an App", "See Connected Apps", "Revoke"],
                     rows: [
                         ["No Access", "No", "No", "No"],
                         ["View Only", "Yes", "Everyone's", "Your own"],
@@ -207,7 +205,7 @@ export const docsMcp: LegalDocument = {
         },
         {
             id: "data",
-            title: "Data handling",
+            title: "Data Handling",
             blocks: [
                 {
                     type: "ul",
@@ -227,7 +225,7 @@ export const docsMcp: LegalDocument = {
             blocks: [
                 {
                     type: "p",
-                    text: `For help connecting or using the connector, email ${SUPPORT_EMAIL_PLACEHOLDER} or see [Support](${SITE_LINKS.support}). For privacy questions, email [privacy@rocketfeast.com](mailto:privacy@rocketfeast.com).`,
+                    text: `For help connecting or using the connector, email ${SUPPORT_EMAIL_PLACEHOLDER} or see [Support](${SITE_LINKS.support}). For privacy questions, email ${PRIVACY_EMAIL_LINK}.`,
                 },
             ],
         },

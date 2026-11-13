@@ -5,14 +5,14 @@ import type { LegalDocument } from "./types";
 export const support: LegalDocument = {
     path: SITE_LINKS.support,
     badge: "Support",
-    title: "Get help with Rocket Feast",
+    title: "Get Help with Rocket Feast",
     intro: "How to reach us, what to send so we can help quickly, and answers to common questions about Rocket Feast AI and the connector for Claude and ChatGPT.",
     updated: "14 November 2026",
     description: "How to contact Rocket Feast support, and help with Rocket Feast AI and the Claude and ChatGPT connector.",
     sections: [
         {
             id: "contact-support",
-            title: "Contact support",
+            title: "Contact Support",
             blocks: [
                 { type: "p", text: `Email ${SUPPORT_EMAIL_PLACEHOLDER}. [[MARC: support hours and how quickly we reply]]` },
                 {
@@ -23,7 +23,7 @@ export const support: LegalDocument = {
         },
         {
             id: "what-to-send",
-            title: "What to send",
+            title: "What to Send",
             blocks: [
                 {
                     type: "ul",
@@ -50,7 +50,7 @@ export const support: LegalDocument = {
                 },
                 {
                     type: "table",
-                    head: ["If…", "Try this"],
+                    head: ["If…", "Try This"],
                     rows: [
                         ["Sign-in says you can't connect", "Your role needs the AI permission set to View Only or View and Edit. Ask your venue's owner."],
                         [
@@ -59,12 +59,13 @@ export const support: LegalDocument = {
                         ],
                         ["A change is refused", "Your role doesn't allow it. The app can do only what you can do in Rocket Feast."],
                         [
-                            "A refund or discount became a request",
-                            "That's expected: connected apps raise approval requests, and a person with approval rights decides.",
+                            "A discount or comp became a request",
+                            "That's expected above the venue's approval limit: connected apps raise an approval request, and a person with approval rights decides.",
                         ],
+                        ["A refund or payment is refused", "Connected apps can't make refunds or take payments. Do it in Rocket Feast."],
                     ],
                 },
-                { type: "actions", links: [{ label: "Read the connector docs", href: SITE_LINKS.docsMcp, primary: true }] },
+                { type: "actions", links: [{ label: "Read the Connector Docs", href: SITE_LINKS.docsMcp, primary: true }] },
             ],
         },
         {
@@ -75,14 +76,14 @@ export const support: LegalDocument = {
                     type: "ul",
                     items: [
                         "Rocket Feast AI runs on your venue's monthly credit. When it runs out, someone with AI View and Edit can use **Add Credit** in **Settings › AI**, or you can use Rocket Feast in Claude or ChatGPT on your own plan.",
-                        "Every change it proposes waits for you to confirm, and you can undo the last one.",
+                        "Every change it proposes waits for you to confirm. Where a change can be reversed, its card offers **Undo**.",
                     ],
                 },
             ],
         },
         {
             id: "privacy-and-security",
-            title: "Privacy and security",
+            title: "Privacy and Security",
             blocks: [
                 {
                     type: "p",

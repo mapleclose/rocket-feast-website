@@ -4,6 +4,10 @@
  * (rocket-feast-mcp src/auth/oauth-metadata.ts), so they must keep these paths.
  */
 export const SITE_LINKS = {
+    home: "/",
+    features: "/features",
+    pricing: "/pricing",
+    caseStudies: "/case-studies",
     contact: "/contact",
     support: "/support",
     docsMcp: "/docs/mcp",

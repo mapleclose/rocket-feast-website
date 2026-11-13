@@ -1,5 +1,14 @@
 import { SITE_LINKS } from "../../utils/site-links";
-import { ADDRESS_PLACEHOLDER, COMPANY, COMPANY_COUNTRY, DPA_PLACEHOLDER, THAILAND_PLACEHOLDER } from "./shared";
+import {
+    ADDRESS_PLACEHOLDER,
+    COMPANY,
+    COMPANY_COUNTRY,
+    COMPANY_NAME_PLACEHOLDER,
+    DPA_PLACEHOLDER,
+    MONEY_REFUSED,
+    MONEY_REQUESTS,
+    THAILAND_PLACEHOLDER,
+} from "./shared";
 import type { LegalDocument } from "./types";
 
 export const terms: LegalDocument = {
@@ -12,11 +21,11 @@ export const terms: LegalDocument = {
     sections: [
         {
             id: "agreement",
-            title: "Who these terms are between",
+            title: "Who These Terms Are Between",
             blocks: [
                 {
                     type: "p",
-                    text: `These terms are between **${COMPANY}**, a company incorporated in ${COMPANY_COUNTRY} (“we”), and the business that signs up for Rocket Feast (“you”). By creating an account or using Rocket Feast you accept them. If you accept for a business, you confirm you are allowed to bind it.`,
+                    text: `These terms are between **${COMPANY}**, a company incorporated in ${COMPANY_COUNTRY} (“we”), and the business that signs up for Rocket Feast (“you”). By creating an account or using Rocket Feast you accept them. If you accept for a business, you confirm you are allowed to bind it. ${COMPANY_NAME_PLACEHOLDER}`,
                 },
                 { type: "p", text: THAILAND_PLACEHOLDER },
                 {
@@ -27,7 +36,7 @@ export const terms: LegalDocument = {
         },
         {
             id: "service",
-            title: "The service",
+            title: "The Service",
             blocks: [
                 {
                     type: "p",
@@ -37,7 +46,7 @@ export const terms: LegalDocument = {
         },
         {
             id: "accounts",
-            title: "Accounts and staff",
+            title: "Accounts and Staff",
             blocks: [
                 {
                     type: "ul",
@@ -51,7 +60,7 @@ export const terms: LegalDocument = {
         },
         {
             id: "your-data",
-            title: "Your data",
+            title: "Your Data",
             blocks: [
                 {
                     type: "ul",
@@ -65,7 +74,7 @@ export const terms: LegalDocument = {
         },
         {
             id: "acceptable-use",
-            title: "Acceptable use",
+            title: "Acceptable Use",
             blocks: [
                 { type: "p", text: "Don't use Rocket Feast to:" },
                 {
@@ -82,7 +91,7 @@ export const terms: LegalDocument = {
         },
         {
             id: "rocket-feast-ai",
-            title: "Rocket Feast AI and credit",
+            title: "Rocket Feast AI and Credit",
             blocks: [
                 {
                     type: "ul",
@@ -91,21 +100,21 @@ export const terms: LegalDocument = {
                         "**Add Credit** buys more for the current month, from THB 300 or USD 10. It is charged on your Rocket Feast bill. [[MARC: whether an unused top-up is refunded or simply ends with the month]]",
                         "When the credit runs out, Rocket Feast AI stops taking new questions until the next month or a top-up. Confirming, cancelling and undoing changes still work.",
                         "Rocket Feast AI can be wrong. It shows each change before it is made and only makes it when you confirm, so check what it proposes. You are responsible for the changes you confirm.",
-                        "Rocket Feast AI never moves money. Refunds, discounts and comps it raises are approval requests for a person to decide.",
+                        `Rocket Feast AI never moves money. ${MONEY_REQUESTS} ${MONEY_REFUSED}`,
                     ],
                 },
             ],
         },
         {
             id: "connected-apps",
-            title: "Claude, ChatGPT and other connected apps",
+            title: "Claude, ChatGPT and Other Connected Apps",
             blocks: [
                 {
                     type: "ul",
                     items: [
                         `You can connect Claude, ChatGPT or another MCP client to Rocket Feast, as our [connector docs](${SITE_LINKS.docsMcp}) explain. The app acts as the person who connected it, with that person's permissions, and what it does counts as that person's action.`,
                         "Your use of the app itself is between you and its provider, such as Anthropic or OpenAI, under their terms. It runs on your own plan with them and doesn't use your Rocket Feast AI credit.",
-                        "Connected apps can't move money: refunds, discounts and comps become approval requests.",
+                        `Apps connected through the Rocket Feast sign-in (such as Claude and ChatGPT) can't move money. ${MONEY_REQUESTS} ${MONEY_REFUSED}`,
                         "People with the AI permission can see and revoke connections in **Settings › AI**.",
                     ],
                 },
@@ -113,7 +122,7 @@ export const terms: LegalDocument = {
         },
         {
             id: "fees",
-            title: "Fees and billing",
+            title: "Fees and Billing",
             blocks: [
                 {
                     type: "p",
@@ -123,7 +132,7 @@ export const terms: LegalDocument = {
         },
         {
             id: "availability",
-            title: "Availability and support",
+            title: "Availability and Support",
             blocks: [
                 {
                     type: "p",
@@ -133,7 +142,7 @@ export const terms: LegalDocument = {
         },
         {
             id: "ending",
-            title: "Ending the service",
+            title: "Ending the Service",
             blocks: [
                 {
                     type: "ul",
@@ -157,7 +166,7 @@ export const terms: LegalDocument = {
         },
         {
             id: "liability",
-            title: "Warranties and liability",
+            title: "Warranties and Liability",
             blocks: [
                 {
                     type: "ul",
@@ -172,7 +181,7 @@ export const terms: LegalDocument = {
         },
         {
             id: "changes",
-            title: "Changes to these terms",
+            title: "Changes to These Terms",
             blocks: [
                 {
                     type: "p",
@@ -182,7 +191,7 @@ export const terms: LegalDocument = {
         },
         {
             id: "law",
-            title: "Governing law",
+            title: "Governing Law",
             blocks: [{ type: "p", text: "These terms are governed by [[MARC: governing law and courts]]." }],
         },
         {

@@ -50,8 +50,8 @@ const footerNavList = [
     {
         label: "Product",
         items: [
-            { label: "Overview", href: "#" },
-            { label: "Features", href: "#" },
+            { label: "Overview", href: SITE_LINKS.home },
+            { label: "Features", href: SITE_LINKS.features },
             {
                 label: "Solutions",
                 href: "#",
@@ -62,7 +62,7 @@ const footerNavList = [
                 ),
             },
             { label: "Tutorials", href: "#" },
-            { label: "Pricing", href: "#" },
+            { label: "Pricing", href: SITE_LINKS.pricing },
             { label: "Releases", href: "#" },
         ],
     },

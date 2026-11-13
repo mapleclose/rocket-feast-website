@@ -1,6 +1,12 @@
 import { SITE_LINKS } from "../../../utils/site-links";
 
 type FooterKey =
+    | "footer.product.features"
+    | "footer.product.pricing"
+    | "footer.product.integrations"
+    | "footer.product.demo"
+    | "footer.product.useCases"
+    | "footer.product.caseStudies"
     | "footer.company.about"
     | "footer.company.contact"
     | "footer.company.support"
@@ -17,6 +23,20 @@ type Translate = (key: FooterKey) => string;
 export interface FooterLink {
     label: string;
     href: string;
+    /** Show the "Free" badge after the label. */
+    badge?: boolean;
+}
+
+/** The footer's Product column. Integrations, Demo and Use Cases have no page yet. */
+export function footerProductLinks(t: Translate): FooterLink[] {
+    return [
+        { label: t("footer.product.features"), href: SITE_LINKS.features },
+        { label: t("footer.product.pricing"), href: SITE_LINKS.pricing },
+        { label: t("footer.product.integrations"), href: "#" },
+        { label: t("footer.product.demo"), href: "#", badge: true },
+        { label: t("footer.product.useCases"), href: "#" },
+        { label: t("footer.product.caseStudies"), href: SITE_LINKS.caseStudies },
+    ];
 }
 
 /** The footer's Company column. About, Partner Program and Careers have no page yet. */

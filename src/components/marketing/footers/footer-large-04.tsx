@@ -6,7 +6,7 @@ import { Form } from "@/components/base/form/form";
 import { Input } from "@/components/base/input/input";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { useI18n } from "@/hooks/use-i18n";
-import { footerCompanyLinks, footerLegalLinks } from "./footer-links";
+import { footerCompanyLinks, footerLegalLinks, footerProductLinks } from "./footer-links";
 
 export const FooterLarge04 = () => {
     const { t, regional } = useI18n();
@@ -14,37 +14,7 @@ export const FooterLarge04 = () => {
     const footerNavList = [
         {
             label: t("footer.product.label"),
-            items: [
-                {
-                    label: t("footer.product.features"),
-                    href: "#",
-                },
-                {
-                    label: t("footer.product.pricing"),
-                    href: "#",
-                },
-                {
-                    label: t("footer.product.integrations"),
-                    href: "#",
-                },
-                {
-                    label: t("footer.product.demo"),
-                    href: "#",
-                    badge: (
-                        <Badge size="sm" type="modern" className="ml-1">
-                            {t("footer.product.demoBadge")}
-                        </Badge>
-                    ),
-                },
-                {
-                    label: t("footer.product.useCases"),
-                    href: "#",
-                },
-                {
-                    label: t("footer.product.caseStudies"),
-                    href: "#",
-                },
-            ],
+            items: footerProductLinks(t),
         },
         {
             label: t("footer.company.label"),
@@ -68,7 +38,19 @@ export const FooterLarge04 = () => {
                                     <ul className="mt-4 flex flex-col gap-3">
                                         {category.items.map((item) => (
                                             <li key={item.label}>
-                                                <Button color="link-color" size="lg" href={item.href} iconTrailing={item.badge} className="gap-1">
+                                                <Button
+                                                    color="link-color"
+                                                    size="lg"
+                                                    href={item.href}
+                                                    iconTrailing={
+                                                        item.badge ? (
+                                                            <Badge size="sm" type="modern" className="ml-1">
+                                                                {t("footer.product.demoBadge")}
+                                                            </Badge>
+                                                        ) : undefined
+                                                    }
+                                                    className="gap-1"
+                                                >
                                                     {item.label}
                                                 </Button>
                                             </li>

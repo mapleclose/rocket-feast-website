@@ -27,7 +27,7 @@ function blockStrings(block: LegalBlock): string[] {
 
 /** Every string on the page that may carry inline markup, in reading order. */
 export function documentStrings(doc: LegalDocument): string[] {
-    return [doc.title, doc.intro, doc.updated, ...doc.sections.flatMap((section) => [section.title, ...section.blocks.flatMap(blockStrings)])];
+    return [doc.title, doc.intro, doc.description, doc.updated, ...doc.sections.flatMap((section) => [section.title, ...section.blocks.flatMap(blockStrings)])];
 }
 
 /** The owner's open placeholders across the given documents, each once, in reading order. */

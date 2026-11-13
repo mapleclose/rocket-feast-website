@@ -1,20 +1,18 @@
-"use client";
-
 import { Fragment } from "react";
-import { AlertTriangle, ArrowUpRight, Check, Copy01, InfoCircle } from "@untitledui/icons";
+import { AlertTriangle, ArrowUpRight, InfoCircle } from "@untitledui/icons";
 import { Button } from "@/components/base/buttons/button";
 import { FooterLarge04 } from "@/components/marketing/footers/footer-large-04";
 import { Header } from "@/components/marketing/header-navigation/header";
+import { CopyValue } from "@/components/marketing/legal/copy-value";
 import { collectPlaceholders } from "@/content/legal";
 import { parseInline } from "@/content/legal/inline";
 import type { LegalBlock, LegalDocument } from "@/content/legal/types";
-import { useClipboard } from "@/hooks/use-clipboard";
 import { cx } from "@/utils/cx";
 
 const isExternal = (href: string) => /^https?:\/\//.test(href);
 
 /** Renders one string of inline markup (see content/legal/inline.ts). */
-const Inline = ({ text }: { text: string }) => (
+const Inline = ({ text, breakCode = true }: { text: string; breakCode?: boolean }) => (
     <>
         {parseInline(text).map((token, index) => {
             switch (token.type) {
@@ -28,7 +26,7 @@ const Inline = ({ text }: { text: string }) => (
                     );
                 case "code":
                     return (
-                        <code key={index} className="[overflow-wrap:anywhere]">
+                        <code key={index} className={breakCode ? "[overflow-wrap:anywhere]" : undefined}>
                             {token.text}
                         </code>
                     );
@@ -57,34 +55,24 @@ const Inline = ({ text }: { text: string }) => (
     </>
 );
 
-const CopyValue = ({ label, value }: { label: string; value: string }) => {
-    const { copied, copy } = useClipboard();
-
-    return (
-        <div className="not-prose my-6 flex flex-col gap-3 rounded-xl bg-secondary p-4 ring-1 ring-secondary ring-inset sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex min-w-0 flex-col gap-1">
-                <span className="text-sm font-medium text-secondary">{label}</span>
-                <code className="font-mono text-md font-semibold [overflow-wrap:anywhere] text-primary">{value}</code>
-            </div>
-            <Button color="secondary" size="md" iconLeading={copied ? Check : Copy01} onClick={() => copy(value)} className="shrink-0">
-                {copied ? "Copied" : "Copy"}
-            </Button>
-        </div>
-    );
-};
+/** A cell that short stays on one line, so no column is squeezed into broken words. */
+const SHORT_CELL = 24;
 
 const Table = ({ head, rows }: { head: string[]; rows: string[][] }) => {
-    // Wide tables of prose scroll sideways on a phone rather than squeezing every column.
+    // Marc's table rule: a table that doesn't fit runs off the right edge of the screen and scrolls;
+    // it is never boxed, cropped inside a frame or squeezed. Below lg the scroller reaches the screen
+    // edge (it cancels the page gutter); long prose columns keep a readable width.
     const wide = head.length >= 3 && rows.some((row) => row.some((cell) => cell.length > 40));
+    const nowrap = (cell: string) => cell.length <= SHORT_CELL || cell.startsWith("`");
 
     return (
-        <div className="not-prose my-6 overflow-x-auto rounded-xl ring-1 ring-secondary ring-inset">
-            <table className={cx("w-full text-left text-sm", wide && "min-w-[40rem]")}>
+        <div className="not-prose my-6 -mr-4 overflow-x-auto md:-mr-8 lg:mr-0">
+            <table className={cx("w-full border-y border-secondary text-left text-sm", wide && "min-w-[40rem]")}>
                 <thead className="bg-secondary">
                     <tr>
                         {head.map((cell) => (
-                            <th key={cell} scope="col" className="px-4 py-3 text-xs font-semibold text-tertiary">
-                                <Inline text={cell} />
+                            <th key={cell} scope="col" className={cx("px-4 py-3 text-xs font-semibold text-tertiary", nowrap(cell) && "whitespace-nowrap")}>
+                                <Inline text={cell} breakCode={false} />
                             </th>
                         ))}
                     </tr>
@@ -98,11 +86,11 @@ const Table = ({ head, rows }: { head: string[]; rows: string[][] }) => {
                                     className={cx(
                                         "px-4 py-3 align-top text-tertiary",
                                         cellIndex === 0 && "font-medium text-primary",
-                                        cell.startsWith("`") && "whitespace-nowrap",
+                                        nowrap(cell) && "whitespace-nowrap",
                                     )}
                                 >
                                     <span className="[&_code]:rounded-md [&_code]:bg-secondary [&_code]:px-1 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-xs [&_code]:font-semibold [&_code]:ring-1 [&_code]:ring-secondary">
-                                        <Inline text={cell} />
+                                        <Inline text={cell} breakCode={false} />
                                     </span>
                                 </td>
                             ))}
@@ -133,8 +121,8 @@ const Block = ({ block }: { block: LegalBlock }) => {
             const List = block.type;
             return (
                 <List>
-                    {block.items.map((item) => (
-                        <li key={item}>
+                    {block.items.map((item, index) => (
+                        <li key={index}>
                             <Inline text={item} />
                         </li>
                     ))}
@@ -163,7 +151,7 @@ const Block = ({ block }: { block: LegalBlock }) => {
                             href={link.href}
                             size="lg"
                             color={link.primary ? "primary" : "secondary"}
-                            iconTrailing={isExternal(link.href) ? ArrowUpRight : undefined}
+                            iconTrailing={isExternal(link.href) ? <ArrowUpRight data-icon /> : undefined}
                             {...(isExternal(link.href) ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                         >
                             {link.label}
@@ -180,7 +168,9 @@ const PageHeader = ({ doc }: { doc: LegalDocument }) => (
             <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
                 <span className="text-sm font-semibold text-brand-secondary md:text-md">{doc.badge}</span>
                 <h1 className="mt-3 text-display-md font-semibold text-primary md:text-display-lg">{doc.title}</h1>
-                <p className="mt-4 text-lg text-tertiary md:mt-6 md:text-xl">{doc.intro}</p>
+                <p className="mt-4 text-lg text-tertiary md:mt-6 md:text-xl">
+                    <Inline text={doc.intro} />
+                </p>
                 <p className="mt-4 text-sm text-quaternary md:mt-6 md:text-md">
                     Last updated <Inline text={doc.updated} />
                 </p>

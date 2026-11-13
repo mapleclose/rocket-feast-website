@@ -7,6 +7,7 @@ import { parseInline } from "./inline";
 import { privacyPolicy } from "./privacy";
 import { support } from "./support";
 import { terms } from "./terms";
+import type { LegalDocument } from "./types";
 
 const APP_DIR = join(__dirname, "..", "..", "app");
 
@@ -70,6 +71,57 @@ describe("legal and docs documents", () => {
         expect(all).toContain("[[MARC: support email address]]");
     });
 
+    it("scan the meta description for placeholders too", () => {
+        const doc: LegalDocument = { ...support, description: "Only here: [[MARC: meta description fact]]", sections: [] };
+        expect(collectPlaceholders([doc])).toContain("[[MARC: meta description fact]]");
+    });
+
+    it("use Title Case for every heading, table heading and button", () => {
+        const SMALL = new Set(["a", "an", "and", "as", "at", "but", "by", "for", "in", "of", "on", "or", "the", "to", "with", "via"]);
+        const isTitleCase = (text: string) =>
+            text
+                .replace(/`[^`]+`/g, "Code")
+                .split(/\s+/)
+                .every((word, index) => {
+                    const bare = word.replace(/^[^\p{L}\d]+|[^\p{L}\d]+$/gu, "");
+                    if (!bare || /^[\p{Lu}\d]/u.test(bare)) return true;
+                    return index > 0 && SMALL.has(bare);
+                });
+        for (const doc of LEGAL_DOCUMENTS) {
+            const headings = [doc.title, doc.badge, ...doc.sections.map((s) => s.title)];
+            for (const block of doc.sections.flatMap((s) => s.blocks)) {
+                if (block.type === "h3") headings.push(block.text);
+                if (block.type === "table") headings.push(...block.head);
+                if (block.type === "actions") headings.push(...block.links.map((link) => link.label));
+            }
+            for (const heading of headings) expect(isTitleCase(heading), `${doc.path}: ${heading}`).toBe(true);
+        }
+    });
+
+    it("use the registered company name from the guest terms", () => {
+        for (const doc of LEGAL_DOCUMENTS) expect(allText(doc), doc.path).not.toContain("Maple Close Ltd");
+        expect(allText(privacyPolicy)).toContain("Maple Close Limited");
+        expect(collectPlaceholders(LEGAL_DOCUMENTS)).toContain("[[MARC: confirm the registered company name is Maple Close Limited]]");
+    });
+
+    it("never promise that refunds become approval requests (refused while REFUND_REQUESTS_ENABLED is off)", () => {
+        for (const doc of LEGAL_DOCUMENTS) {
+            for (const sentence of documentStrings(doc).flatMap((text) => text.split(/(?<=[.;:!?])\s+/))) {
+                if (/refund/i.test(sentence)) expect(sentence, doc.path).not.toMatch(/request/i);
+            }
+        }
+    });
+
+    it("qualify every 'can't move money' to apps connected through the Rocket Feast sign-in, or Rocket Feast AI", () => {
+        for (const doc of LEGAL_DOCUMENTS) {
+            for (const sentence of documentStrings(doc).flatMap((text) => text.split(/(?<=[.!?])\s+/))) {
+                if (/(can't|cannot|never) move money/i.test(sentence)) {
+                    expect(sentence, doc.path).toMatch(/connected through (the )?Rocket Feast sign-in|^(\*\*)?Rocket Feast AI/);
+                }
+            }
+        }
+    });
+
     it("write THB, never the baht sign", () => {
         for (const doc of LEGAL_DOCUMENTS) expect(allText(doc), doc.path).not.toContain("฿");
     });
@@ -87,6 +139,7 @@ describe("/docs/mcp", () => {
     });
 
     it("describes exactly the scopes the MCP advertises (rocket-feast-mcp oauth-metadata SCOPES_SUPPORTED)", () => {
+        // MCP_SCOPES mirrors the MCP repo by hand (this repo can't read it); this pins the copy and the table to it.
         expect(MCP_SCOPES).toEqual(["read", "write"]);
         const scopes = docsMcp.sections.find((s) => s.id === "scopes");
         const table = scopes?.blocks.find((b) => b.type === "table");
@@ -99,6 +152,10 @@ describe("/docs/mcp", () => {
         );
         expect(text).toContain("Settings › AI");
         expect(text).toMatch(/approval request/i);
+        const money = documentStrings({ ...docsMcp, sections: docsMcp.sections.filter((s) => s.id === "money") }).join(" ");
+        expect(money).toMatch(/above the venue's approval limit/);
+        expect(money).toMatch(/Refunds, payments, points, vouchers.*refused/);
+        expect(text).not.toMatch(/as if you had made it yourself/);
         expect(text).toContain("Rocket Feast AI");
         expect(text).toContain("View Only");
         expect(text).toContain("View and Edit");
@@ -113,7 +170,21 @@ describe("/privacy", () => {
         expect(text).toContain("ap-southeast-7");
         expect(text).toContain("OpenRouter");
         expect(text).toContain("Stripe");
-        expect(text).toContain("Maple Close Ltd");
+        expect(text).toContain("Maple Close Limited");
+    });
+
+    it("names the known service providers and where the website runs", () => {
+        expect(text).toContain("Twilio");
+        expect(text).toContain("AWS Amplify");
+        expect(text).toContain("ap-southeast-2");
+        expect(text).toMatch(/OpenRouter[^|]*supplier invoices/);
+        expect(collectPlaceholders([privacyPolicy]).some((p) => p.startsWith("[[MARC: complete the service-provider list"))).toBe(true);
+    });
+
+    it("makes no unsourced promises (reply time) and no claim about IP-based region detection", () => {
+        expect(text).not.toMatch(/reply within 30 days/);
+        expect(text).not.toMatch(/IP address, to choose/);
+        expect(collectPlaceholders([privacyPolicy])).toContain("[[MARC: how quickly we reply to privacy requests, for example 30 days]]");
     });
 
     it("has the cookies section the footer links to", () => {
@@ -128,7 +199,8 @@ describe("/terms and /support", () => {
         expect(text).toContain("USD 15");
     });
 
-    it("support points to the connector docs", () => {
+    it("support points to the connector docs and doesn't overstate undo", () => {
         expect(allText(support)).toContain("/docs/mcp");
+        expect(allText(support)).not.toMatch(/undo the last one/);
     });
 });

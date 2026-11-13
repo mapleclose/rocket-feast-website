@@ -1,5 +1,17 @@
 import { SITE_LINKS } from "../../utils/site-links";
-import { ADDRESS_PLACEHOLDER, COMPANY, COMPANY_COUNTRY, COMPANY_NUMBER_PLACEHOLDER, DPA_PLACEHOLDER, PRIVACY_EMAIL_LINK, THAILAND_PLACEHOLDER } from "./shared";
+import {
+    ADDRESS_PLACEHOLDER,
+    COMPANY,
+    COMPANY_COUNTRY,
+    COMPANY_NAME_PLACEHOLDER,
+    COMPANY_NUMBER_PLACEHOLDER,
+    DPA_PLACEHOLDER,
+    MONEY_REFUSED,
+    MONEY_REQUESTS,
+    PRIVACY_EMAIL_LINK,
+    PRIVACY_MAILBOX_PLACEHOLDER,
+    THAILAND_PLACEHOLDER,
+} from "./shared";
 import type { LegalDocument } from "./types";
 
 export const privacyPolicy: LegalDocument = {
@@ -13,11 +25,11 @@ export const privacyPolicy: LegalDocument = {
     sections: [
         {
             id: "who-we-are",
-            title: "Who we are",
+            title: "Who We Are",
             blocks: [
                 {
                     type: "p",
-                    text: `Rocket Feast is operated by **${COMPANY}**, a company incorporated in ${COMPANY_COUNTRY} (company number ${COMPANY_NUMBER_PLACEHOLDER}), whose registered office is at ${ADDRESS_PLACEHOLDER}. In this policy, “we” and “us” mean ${COMPANY}.`,
+                    text: `Rocket Feast is operated by **${COMPANY}**, a company incorporated in ${COMPANY_COUNTRY} (company number ${COMPANY_NUMBER_PLACEHOLDER}), whose registered office is at ${ADDRESS_PLACEHOLDER}. In this policy, “we” and “us” mean ${COMPANY}. ${COMPANY_NAME_PLACEHOLDER}`,
                 },
                 {
                     type: "p",
@@ -28,7 +40,7 @@ export const privacyPolicy: LegalDocument = {
         },
         {
             id: "scope",
-            title: "What this policy covers",
+            title: "What This Policy Covers",
             blocks: [
                 {
                     type: "ul",
@@ -47,7 +59,7 @@ export const privacyPolicy: LegalDocument = {
         },
         {
             id: "roles",
-            title: "Our role",
+            title: "Our Role",
             blocks: [
                 {
                     type: "p",
@@ -61,7 +73,7 @@ export const privacyPolicy: LegalDocument = {
         },
         {
             id: "data-we-collect",
-            title: "Data we collect",
+            title: "Data We Collect",
             blocks: [
                 {
                     type: "table",
@@ -89,7 +101,7 @@ export const privacyPolicy: LegalDocument = {
         },
         {
             id: "how-we-use",
-            title: "How we use it",
+            title: "How We Use It",
             blocks: [
                 {
                     type: "ul",
@@ -116,7 +128,8 @@ export const privacyPolicy: LegalDocument = {
                     items: [
                         "Rocket Feast AI sends your message, the screen you're on and the data it looks up to a language model through **OpenRouter**, which passes it to the model's provider. The model we use today is from OpenAI.",
                         "We send every request with OpenRouter's setting to use only model providers that do not collect user data.",
-                        "Rocket Feast AI acts as you. It can only see and change what your role allows, every change waits for your confirmation, and anything involving money is sent as an approval request.",
+                        "Rocket Feast AI acts as you. It can only see and change what your role allows, and every change waits for your confirmation.",
+                        `Rocket Feast AI can't move money. ${MONEY_REQUESTS} ${MONEY_REFUSED}`,
                         "Conversations are kept for 24 hours after the last message, then deleted. There is no chat history.",
                         "For each model call we record who used it, at which venue, when, and its cost, to measure the venue's monthly credit.",
                     ],
@@ -125,7 +138,7 @@ export const privacyPolicy: LegalDocument = {
         },
         {
             id: "connector",
-            title: "Claude, ChatGPT and other connected apps",
+            title: "Claude, ChatGPT and Other Connected Apps",
             blocks: [
                 {
                     type: "p",
@@ -139,15 +152,23 @@ export const privacyPolicy: LegalDocument = {
         },
         {
             id: "sharing",
-            title: "Who we share it with",
+            title: "Who We Share It With",
             blocks: [
                 { type: "p", text: "We use these service providers. Each processes data only to provide its service to us." },
                 {
                     type: "table",
-                    head: ["Provider", "What for"],
+                    head: ["Provider", "What For"],
                     rows: [
-                        ["Amazon Web Services", "Hosting, databases and backups, email and text messages, and this website."],
-                        ["OpenRouter, and the model provider it routes to", "Running Rocket Feast AI."],
+                        ["Amazon Web Services", "Hosting, databases and backups, email and text messages."],
+                        [
+                            "AWS Amplify",
+                            "Hosting this website, including the sign-in page you use to connect an app, which passes what you type on to Rocket Feast without storing it.",
+                        ],
+                        ["Twilio", "Sending sign-in codes."],
+                        [
+                            "OpenRouter, and the model provider it routes to",
+                            "Running Rocket Feast AI, reading supplier invoices when stock is received, and reading the menus, files and links a venue shares during setup.",
+                        ],
                         ["Stripe", "Subscription billing and tax."],
                     ],
                 },
@@ -163,7 +184,7 @@ export const privacyPolicy: LegalDocument = {
         },
         {
             id: "where",
-            title: "Where your data is stored",
+            title: "Where Your Data Is Stored",
             blocks: [
                 {
                     type: "p",
@@ -171,20 +192,24 @@ export const privacyPolicy: LegalDocument = {
                 },
                 {
                     type: "p",
-                    text: "Some providers, such as OpenRouter and the model providers, may process data in other countries. Where data leaves the country it was collected in, we use [[MARC: the transfer safeguards to name, such as standard contractual clauses]].",
+                    text: "This website runs on AWS Amplify in the Asia Pacific (Sydney) region, ap-southeast-2.",
+                },
+                {
+                    type: "p",
+                    text: "Some providers, such as Twilio, OpenRouter and the model providers, may process data in other countries. Where data leaves the country it was collected in, we use [[MARC: the transfer safeguards to name, such as standard contractual clauses]].",
                 },
             ],
         },
         {
             id: "retention",
-            title: "How long we keep it",
+            title: "How Long We Keep It",
             blocks: [
                 {
                     type: "table",
-                    head: ["Data", "Kept for"],
+                    head: ["Data", "Kept For"],
                     rows: [
                         ["Rocket Feast AI conversations", "24 hours after the last message."],
-                        ["Connected-app sign-ins", "Until revoked or expired."],
+                        ["Connected-app sign-ins", "Until revoked or expired, and at most 90 days."],
                         ["Account and venue data", "While the account is open, then [[MARC: retention period after a venue account closes]]."],
                         ["Billing and Rocket Feast AI credit records", "[[MARC: retention period for billing and credit records]]."],
                         ["Logs, including connector tool calls", "[[MARC: log retention period]]."],
@@ -205,7 +230,7 @@ export const privacyPolicy: LegalDocument = {
         },
         {
             id: "your-rights",
-            title: "Your rights",
+            title: "Your Rights",
             blocks: [
                 {
                     type: "p",
@@ -213,18 +238,18 @@ export const privacyPolicy: LegalDocument = {
                 },
                 {
                     type: "p",
-                    text: `Email ${PRIVACY_EMAIL_LINK}. We may need to confirm who you are first, and we reply within 30 days. If the data belongs to a venue, we pass your request to that venue. You can also complain to your local data protection authority.`,
+                    text: `Email ${PRIVACY_EMAIL_LINK}. We may need to confirm who you are first, and we reply within [[MARC: how quickly we reply to privacy requests, for example 30 days]]. If the data belongs to a venue, we pass your request to that venue. You can also complain to your local data protection authority.`,
                 },
             ],
         },
         {
             id: "cookies",
-            title: "Cookies and browser storage",
+            title: "Cookies and Browser Storage",
             blocks: [
                 { type: "p", text: "This website uses no advertising or analytics cookies. It uses only:" },
                 {
                     type: "table",
-                    head: ["Name", "Purpose", "Kept for"],
+                    head: ["Name", "Purpose", "Kept For"],
                     rows: [
                         [
                             "`__Host-rf_mcp_device` (cookie)",
@@ -236,7 +261,7 @@ export const privacyPolicy: LegalDocument = {
                 },
                 {
                     type: "p",
-                    text: "We use your approximate country, from your IP address, to choose a region the first time you visit; we don't store it. The Rocket Feast apps use the cookies and browser storage they need to keep you signed in.",
+                    text: "The Rocket Feast apps use the cookies and browser storage they need to keep you signed in.",
                 },
             ],
         },
@@ -247,7 +272,7 @@ export const privacyPolicy: LegalDocument = {
         },
         {
             id: "changes",
-            title: "Changes to this policy",
+            title: "Changes to This Policy",
             blocks: [
                 {
                     type: "p",
@@ -261,7 +286,7 @@ export const privacyPolicy: LegalDocument = {
             blocks: [
                 {
                     type: "p",
-                    text: `Email ${PRIVACY_EMAIL_LINK}, or write to ${COMPANY}, ${ADDRESS_PLACEHOLDER}. [[MARC: name a data protection officer or local representative, if the law requires one]]`,
+                    text: `Email ${PRIVACY_EMAIL_LINK}, or write to ${COMPANY}, ${ADDRESS_PLACEHOLDER}. [[MARC: name a data protection officer or local representative, if the law requires one]] ${PRIVACY_MAILBOX_PLACEHOLDER}`,
                 },
             ],
         },
