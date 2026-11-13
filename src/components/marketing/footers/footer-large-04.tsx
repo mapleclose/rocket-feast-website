@@ -6,6 +6,7 @@ import { Form } from "@/components/base/form/form";
 import { Input } from "@/components/base/input/input";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { useI18n } from "@/hooks/use-i18n";
+import { footerCompanyLinks, footerLegalLinks } from "./footer-links";
 
 export const FooterLarge04 = () => {
     const { t, regional } = useI18n();
@@ -47,32 +48,7 @@ export const FooterLarge04 = () => {
         },
         {
             label: t("footer.company.label"),
-            items: [
-                {
-                    label: t("footer.company.about"),
-                    href: "#",
-                },
-                {
-                    label: t("footer.company.contact"),
-                    href: "#",
-                },
-                {
-                    label: t("footer.company.support"),
-                    href: "#",
-                },
-                {
-                    label: t("footer.company.documentation"),
-                    href: "#",
-                },
-                {
-                    label: t("footer.company.partnerProgram"),
-                    href: "#",
-                },
-                {
-                    label: t("footer.company.careers"),
-                    href: "#",
-                },
-            ],
+            items: footerCompanyLinks(t),
         },
     ];
 
@@ -109,20 +85,7 @@ export const FooterLarge04 = () => {
                     </p>
 
                     <ul className="flex gap-4">
-                        {[
-                            {
-                                label: t("footer.legal.terms"),
-                                href: "#",
-                            },
-                            {
-                                label: t("footer.legal.privacy"),
-                                href: "#",
-                            },
-                            {
-                                label: t("footer.legal.cookies"),
-                                href: "#",
-                            },
-                        ].map(({ label, href }) => (
+                        {footerLegalLinks(t).map(({ label, href }) => (
                             <li key={label}>
                                 <a
                                     href={href}

@@ -15,6 +15,7 @@ import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-ic
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { Header } from "@/components/marketing/header-navigation/header";
 import countries, { phoneCodeOptions } from "@/utils/countries";
+import { SITE_LINKS } from "@/utils/site-links";
 
 const ContactFormAndMap = () => {
     const [selectedCountryPhone, setSelectedCountryPhone] = useState("US");
@@ -68,7 +69,7 @@ const ContactFormAndMap = () => {
                                     <>
                                         You agree to our friendly{" "}
                                         <a
-                                            href="#"
+                                            href={SITE_LINKS.privacy}
                                             className="rounded-xs underline underline-offset-3 outline-focus-ring focus-visible:outline-2 focus-visible:outline-offset-2"
                                         >
                                             privacy policy.
@@ -255,7 +256,7 @@ const navList2Brand = [
             { label: "Press", href: "#" },
             { label: "News", href: "#" },
             { label: "Media kit", href: "#" },
-            { label: "Contact", href: "#" },
+            { label: "Contact", href: SITE_LINKS.contact },
         ],
     },
     {
@@ -264,9 +265,9 @@ const navList2Brand = [
             { label: "Blog", href: "#" },
             { label: "Newsletter", href: "#" },
             { label: "Events", href: "#" },
-            { label: "Help centre", href: "#" },
+            { label: "Help centre", href: SITE_LINKS.support },
             { label: "Tutorials", href: "#" },
-            { label: "Support", href: "#" },
+            { label: "Support", href: SITE_LINKS.support },
         ],
     },
     {
@@ -283,12 +284,12 @@ const navList2Brand = [
     {
         title: "Legal",
         items: [
-            { label: "Terms", href: "#" },
-            { label: "Privacy", href: "#" },
-            { label: "Cookies", href: "#" },
+            { label: "Terms", href: SITE_LINKS.terms },
+            { label: "Privacy", href: SITE_LINKS.privacy },
+            { label: "Cookies", href: SITE_LINKS.cookies },
             { label: "Licenses", href: "#" },
             { label: "Settings", href: "#" },
-            { label: "Contact", href: "#" },
+            { label: "Contact", href: SITE_LINKS.contact },
         ],
     },
 ];
