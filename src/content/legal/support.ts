@@ -60,7 +60,7 @@ export const support: LegalDocument = {
                         ["A change is refused", "Your role doesn't allow it. The app can do only what you can do in Rocket Feast."],
                         [
                             "A discount or comp became a request",
-                            "That's expected above the venue's approval limit: connected apps raise an approval request, and a person with approval rights decides.",
+                            "That's expected: discounts and comps from a connected app are always sent as approval requests, whatever the amount, and a person with approval rights decides.",
                         ],
                         ["A refund or payment is refused", "Connected apps can't make refunds or take payments. Do it in Rocket Feast."],
                     ],

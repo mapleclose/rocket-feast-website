@@ -27,6 +27,6 @@ export const THAILAND_PLACEHOLDER = "[[MARC: who the customer contracts with, an
  * REFUND_REQUESTS_ENABLED is off). Kept as separate sentences so refunds are never tied to a request.
  */
 export const MONEY_REQUESTS =
-    "Bill discounts, item discounts and comps above the venue's approval limit are sent as **approval requests** for a person with approval rights to approve or decline in Rocket Feast.";
+    "Bill discounts, item discounts and comps are always sent as **approval requests**, whatever the amount, for a person with approval rights to approve or decline in Rocket Feast.";
 export const MONEY_REFUSED =
-    "Refunds, payments, points, vouchers, reopening or merging bills, and expenses are refused. Staff do them in Rocket Feast, and approving or declining requests is also left to staff.";
+    "Refunds, payments, points, giving or taking back vouchers, reopening or merging bills, and expenses are refused. Staff do them in Rocket Feast, and approving or declining requests is also left to staff.";

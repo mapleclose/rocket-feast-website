@@ -104,6 +104,14 @@ describe("legal and docs documents", () => {
         expect(collectPlaceholders(LEGAL_DOCUMENTS)).toContain("[[MARC: confirm the registered company name is Maple Close Limited]]");
     });
 
+    it("never limit discount and comp requests to amounts above the approval limit (they are always requests)", () => {
+        for (const doc of LEGAL_DOCUMENTS) expect(allText(doc), doc.path).not.toMatch(/above the (venue's )?(approval )?limit/i);
+    });
+
+    it("never refuse vouchers outright: applying a guest's own voucher is allowed", () => {
+        for (const doc of LEGAL_DOCUMENTS) expect(allText(doc), doc.path).not.toMatch(/points, vouchers/);
+    });
+
     it("never promise that refunds become approval requests (refused while REFUND_REQUESTS_ENABLED is off)", () => {
         for (const doc of LEGAL_DOCUMENTS) {
             for (const sentence of documentStrings(doc).flatMap((text) => text.split(/(?<=[.;:!?])\s+/))) {
@@ -153,9 +161,13 @@ describe("/docs/mcp", () => {
         expect(text).toContain("Settings › AI");
         expect(text).toMatch(/approval request/i);
         const money = documentStrings({ ...docsMcp, sections: docsMcp.sections.filter((s) => s.id === "money") }).join(" ");
-        expect(money).toMatch(/above the venue's approval limit/);
-        expect(money).toMatch(/Refunds, payments, points, vouchers.*refused/);
-        expect(text).not.toMatch(/as if you had made it yourself/);
+        // Owner rule 13 Nov: discounts, item discounts and comps from a connected app are always requests,
+        // whatever the amount (backend discountApprovalWorkflow.ts:375-385, itemDiscounts.ts:355-358).
+        expect(money).toMatch(/are always sent as \*\*approval requests\*\*, whatever the amount/);
+        // Applying a guest's own voucher is allowed; only giving or taking back vouchers is refused.
+        expect(money).toMatch(/Refunds, payments, points, giving or taking back vouchers.*refused/);
+        expect(text).not.toMatch(/as if you had made it yourself|marked as made through a connected app/);
+        expect(text).toMatch(/the change history shows when a change came through a connected app/);
         expect(text).toContain("Rocket Feast AI");
         expect(text).toContain("View Only");
         expect(text).toContain("View and Edit");

@@ -161,7 +161,7 @@ export const docsMcp: LegalDocument = {
                     items: [
                         "Neither scope gives more than your role allows. If your role can't edit the menu, the app can't either.",
                         "A connection granted only `read` can't make changes.",
-                        "Every change is saved in Rocket Feast under your name, marked as made through a connected app.",
+                        "Changes are made as you, and the change history shows when a change came through a connected app.",
                     ],
                 },
             ],
