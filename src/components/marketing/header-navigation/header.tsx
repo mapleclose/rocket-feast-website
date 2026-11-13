@@ -7,8 +7,9 @@ import { Button as AriaButton, Dialog as AriaDialog, DialogTrigger as AriaDialog
 import { Button } from "@/components/base/buttons/button";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { UntitledLogoMinimal } from "@/components/foundations/logo/untitledui-logo-minimal";
-import { cx } from "@/utils/cx";
 import { useI18n } from "@/hooks/use-i18n";
+import { cx } from "@/utils/cx";
+import { SITE_LINKS } from "@/utils/site-links";
 import { CountrySelector } from "./country-selector";
 
 type HeaderNavItem = {
@@ -54,11 +55,11 @@ const MobileFooter = () => {
         { label: t("nav.aboutUs"), href: "/about" },
         { label: t("nav.press"), href: "/press" },
         { label: t("nav.careers"), href: "/careers" },
-        { label: t("nav.legal"), href: "/legal" },
+        { label: t("nav.legal"), href: SITE_LINKS.terms },
         { label: t("nav.support"), href: "/support" },
         { label: t("nav.contact"), href: "/contact" },
         { label: t("nav.sitemap"), href: "/sitemap" },
-        { label: t("nav.cookieSettings"), href: "/cookie-settings" },
+        { label: t("nav.cookieSettings"), href: SITE_LINKS.cookies },
     ];
 
     return (

@@ -11,6 +11,7 @@ import { StarIcon } from "@/components/foundations/rating-stars";
 import { Header } from "@/components/marketing/header-navigation/header";
 import { SectionDivider } from "@/components/shared-assets/section-divider";
 import { cx } from "@/utils/cx";
+import { SITE_LINKS } from "@/utils/site-links";
 
 const faqsExtended = [
     {
@@ -49,8 +50,8 @@ const footerNavList = [
     {
         label: "Product",
         items: [
-            { label: "Overview", href: "#" },
-            { label: "Features", href: "#" },
+            { label: "Overview", href: SITE_LINKS.home },
+            { label: "Features", href: SITE_LINKS.features },
             {
                 label: "Solutions",
                 href: "#",
@@ -61,7 +62,7 @@ const footerNavList = [
                 ),
             },
             { label: "Tutorials", href: "#" },
-            { label: "Pricing", href: "#" },
+            { label: "Pricing", href: SITE_LINKS.pricing },
             { label: "Releases", href: "#" },
         ],
     },
@@ -73,7 +74,7 @@ const footerNavList = [
             { label: "Press", href: "#" },
             { label: "News", href: "#" },
             { label: "Media kit", href: "#" },
-            { label: "Contact", href: "#" },
+            { label: "Contact", href: SITE_LINKS.contact },
         ],
     },
     {
@@ -82,9 +83,9 @@ const footerNavList = [
             { label: "Blog", href: "#" },
             { label: "Newsletter", href: "#" },
             { label: "Events", href: "#" },
-            { label: "Help centre", href: "#" },
+            { label: "Help centre", href: SITE_LINKS.support },
             { label: "Tutorials", href: "#" },
-            { label: "Support", href: "#" },
+            { label: "Support", href: SITE_LINKS.support },
         ],
     },
     {
@@ -112,12 +113,12 @@ const footerNavList = [
     {
         label: "Legal",
         items: [
-            { label: "Terms", href: "#" },
-            { label: "Privacy", href: "#" },
-            { label: "Cookies", href: "#" },
+            { label: "Terms", href: SITE_LINKS.terms },
+            { label: "Privacy", href: SITE_LINKS.privacy },
+            { label: "Cookies", href: SITE_LINKS.cookies },
             { label: "Licenses", href: "#" },
             { label: "Settings", href: "#" },
-            { label: "Contact", href: "#" },
+            { label: "Contact", href: SITE_LINKS.contact },
         ],
     },
 ];
