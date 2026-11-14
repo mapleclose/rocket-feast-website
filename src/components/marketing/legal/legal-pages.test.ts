@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import nextConfig from "../../../../next.config.mjs";
@@ -10,6 +10,8 @@ import { termsOfService } from "./terms-of-service";
 const documents: Record<string, LegalDocument> = { privacyPolicy, termsOfService, dataDeletion };
 const root = process.cwd();
 // Approved integration plan (social_messages retention: 90 days).
+const REGISTERED_ADDRESS = "No. 5, 17/F, Strand 50, 50 Bonham Strand, Sheung Wan, Hong Kong SAR";
+const COMPANY_NUMBER = "(Hong Kong company number 2191307)";
 const GUEST_RETENTION = "kept for 90 days after the last message, then deleted, unless the venue deletes them sooner";
 
 describe("legal routes", () => {
@@ -33,6 +35,34 @@ describe("legal routes", () => {
     });
 });
 
+function sourceFiles(dir: string): string[] {
+    return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+        const path = join(dir, entry.name);
+        if (entry.isDirectory()) return sourceFiles(path);
+        return /\.(ts|tsx)$/.test(entry.name) ? [path] : [];
+    });
+}
+
+describe("legal links across the site", () => {
+    const files = sourceFiles(join(root, "src/app"));
+
+    it("has no Terms, Privacy or Cookies link pointing at #", () => {
+        const offenders = files.filter((file) => {
+            const code = readFileSync(file, "utf8");
+            return (
+                /label:\s*"(Terms|Privacy|Cookies)"\s*,\s*href:\s*"#"/.test(code) ||
+                /href="#"[^>]*>\s*(terms|privacy|cookies)/i.test(code)
+            );
+        });
+        expect(offenders).toEqual([]);
+    });
+
+    it.each(["src/app/contact/contact-page-03.tsx", "src/app/faqs/faq-page-10.tsx"])("%s footer links Data deletion", (file) => {
+        const code = readFileSync(join(root, file), "utf8");
+        expect(code).toContain("LEGAL_ROUTES.dataDeletion");
+    });
+});
+
 describe("every legal document", () => {
     it.each(Object.entries(documents))("%s is dated 14 November 2026", (_name, doc) => {
         expect(LAST_UPDATED).toBe("14 November 2026");
@@ -42,6 +72,14 @@ describe("every legal document", () => {
             expect(section.id).toMatch(/^[a-z0-9-]+$/);
             expect(section.heading.length).toBeGreaterThan(0);
         }
+    });
+
+    it.each(Object.entries(documents))("%s has no unfinished placeholders", (_name, doc) => {
+        expect(documentText(doc)).not.toMatch(/\[[^\]]*to be added/);
+    });
+
+    it.each(Object.entries(documents))("%s gives the company number", (_name, doc) => {
+        expect(documentText(doc)).toContain(`Maple Close Limited ${COMPANY_NUMBER}`);
     });
 
     it.each(Object.entries(documents))("%s names the operator", (_name, doc) => {
@@ -88,8 +126,30 @@ describe("privacy policy", () => {
         expect(text).toMatch(/we are the (data )?controller/i);
     });
 
-    it("leaves a bracketed placeholder for the registered address", () => {
-        expect(text).toContain("[Registered address");
+    it("gives the registered address", () => {
+        expect(text).toContain(REGISTERED_ADDRESS);
+    });
+
+    it("does not point people at in-product controls that do not exist", () => {
+        for (const doc of Object.values(documents)) {
+            const t = documentText(doc);
+            expect(t).not.toContain("Social › Inbox");
+            expect(t).not.toContain("Social › Settings");
+        }
+    });
+
+    it("discloses profile pictures, attachments, access keys and Business Integrations", () => {
+        expect(text).toMatch(/profile picture/i);
+        expect(text).toMatch(/photos/i);
+        expect(text).toMatch(/attachments/i);
+        expect(text).toMatch(/access keys/i);
+        expect(text).toContain("Business Integrations");
+    });
+
+    it("does not claim the PDPO requires cross-border protections", () => {
+        expect(text).not.toMatch(/PDPA and PDPO require/);
+        expect(text).not.toMatch(/PDPO require/);
+        expect(text).toContain("Thailand (Bangkok)");
     });
 
     it("describes what Rocket Feast Social stores, who sees it and how long it is kept", () => {
@@ -99,7 +159,7 @@ describe("privacy policy", () => {
         expect(text).toContain(GUEST_RETENTION);
         expect(text).not.toContain("12 months");
         expect(text).toContain("within 30 days");
-        expect(text).toMatch(/do not (use .* to )?train/i);
+        expect(text).toMatch(/agreed not to use it to train/i);
         expect(text).toMatch(/never sell/i);
         expect(text).toMatch(/advertising/i);
         expect(text).toContain(LEGAL_ROUTES.dataDeletion);
@@ -135,5 +195,17 @@ describe("terms of service", () => {
         expect(text).toContain("Rocket Feast Social");
         expect(text).toContain("Meta");
         expect(text).toContain(LEGAL_ROUTES.privacy);
+    });
+
+    it("gives the registered address", () => {
+        expect(text).toContain(REGISTERED_ADDRESS);
+    });
+
+    it("sets out processor clauses", () => {
+        expect(text).toContain("only to provide Rocket Feast and on your instructions");
+    });
+
+    it("explains that reseller orders are billed by the reseller", () => {
+        expect(text).toContain("authorised reseller, such as Yummi Umami Ltd in Thailand");
     });
 });

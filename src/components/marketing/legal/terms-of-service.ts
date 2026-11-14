@@ -4,8 +4,9 @@ export const termsOfService: LegalDocument = {
     title: "Terms of Service",
     description: "The terms for businesses that use Rocket Feast, the restaurant and venue management platform operated by Maple Close Limited.",
     intro: [
-        'These terms are an agreement between Maple Close Limited, a company incorporated in Hong Kong and trading as Rocket Feast ("Rocket Feast", "we", "us"), and the business that signs up to use Rocket Feast ("you"). They also apply to everyone who uses Rocket Feast on that business\'s behalf.',
+        'These terms are an agreement between Maple Close Limited (Hong Kong company number 2191307), a company incorporated in Hong Kong and trading as Rocket Feast ("Rocket Feast", "we", "us"), and the business that signs up to use Rocket Feast ("you"). They also apply to everyone who uses Rocket Feast on that business\'s behalf.',
         "If you have a separate signed agreement or order form with us, it takes priority where it differs from these terms.",
+        "If you buy Rocket Feast through an authorised reseller, such as Yummi Umami Ltd in Thailand, your order and billing are with the reseller, and these terms govern your use of Rocket Feast with us.",
     ],
     sections: [
         {
@@ -35,6 +36,7 @@ export const termsOfService: LegalDocument = {
             blocks: [
                 "You own the data you and your guests put into Rocket Feast. You allow us to store and process it to provide the service to you.",
                 `For your guests' personal data, you are the controller and we process it on your behalf. You are responsible for having a lawful basis to collect it and for telling your guests how you use it, including that you use AI to help answer messages. Our [Privacy Policy](${LEGAL_ROUTES.privacy}) explains how we handle personal data.`,
+                "When we process your guests' personal data for you, we: process it only to provide Rocket Feast and on your instructions; keep it confidential and limit access to people who need it; protect it with appropriate security; use service providers bound by similar duties (our current providers are listed in our Privacy Policy); tell you without undue delay about a breach that affects it; help you answer guests' requests; and delete or return it when you stop using Rocket Feast, unless the law requires us to keep it.",
             ],
         },
         {
@@ -60,9 +62,9 @@ export const termsOfService: LegalDocument = {
                 [
                     "You must have the right to manage the Page and account you connect.",
                     "You must follow Meta's terms and policies, including its rules on messaging and the time limits for replies.",
-                    "You set the rules the AI assistant follows and approve the saved answers it uses. You are responsible for the replies and posts sent from your accounts.",
+                    "You set the rules the AI assistant follows, and you can review, edit or remove the saved answers it learns. You are responsible for the replies and posts sent from your accounts.",
                     "We publish only posts that someone on your team has approved.",
-                    "You can disconnect your accounts at any time. We then delete the data we received from Meta for those accounts within 30 days.",
+                    "You can disconnect your accounts at any time, in your Facebook settings or by asking us. We then delete the data we received from Meta for those accounts within 30 days.",
                 ],
                 "We use data from Meta only to provide Rocket Feast Social to you. We never sell it or use it for advertising.",
             ],
@@ -175,7 +177,7 @@ export const termsOfService: LegalDocument = {
         {
             id: "contact",
             heading: "Contact",
-            blocks: [`Maple Close Limited, trading as Rocket Feast. Registered address: [Registered address to be added]. Contact us through ${contactLink}.`],
+            blocks: [`Maple Close Limited, trading as Rocket Feast. Registered address: No. 5, 17/F, Strand 50, 50 Bonham Strand, Sheung Wan, Hong Kong SAR. Contact us through ${contactLink}.`],
         },
     ],
 };

@@ -5,7 +5,7 @@ export const privacyPolicy: LegalDocument = {
     description:
         "How Rocket Feast, operated by Maple Close Limited, collects, uses and protects personal data, including messages received through Facebook and Instagram.",
     intro: [
-        'This policy explains how Rocket Feast handles personal data. Rocket Feast is operated by Maple Close Limited, a company incorporated in Hong Kong ("Rocket Feast", "we", "us").',
+        'This policy explains how Rocket Feast handles personal data. Rocket Feast is operated by Maple Close Limited (Hong Kong company number 2191307), a company incorporated in Hong Kong ("Rocket Feast", "we", "us").',
         'Rocket Feast is a restaurant and venue management platform. We sell it to hospitality businesses ("venues"), such as restaurants, cafés, bars and leisure venues. It covers point of sale, menus, ordering, bills, members, staff, inventory and admissions.',
     ],
     sections: [
@@ -14,7 +14,7 @@ export const privacyPolicy: LegalDocument = {
             heading: "Who we are",
             blocks: [
                 "Maple Close Limited, trading as Rocket Feast.",
-                "Registered address: [Registered address to be added].",
+                "Registered address: No. 5, 17/F, Strand 50, 50 Bonham Strand, Sheung Wan, Hong Kong SAR.",
                 `For any question about this policy or your personal data, contact us through ${contactLink}.`,
             ],
         },
@@ -33,7 +33,7 @@ export const privacyPolicy: LegalDocument = {
                     "Our own customers, the businesses that buy Rocket Feast, and the people who contact us on their behalf.",
                     "People who visit rocketfeast.com or contact us.",
                 ],
-                "Records a venue keeps about its team in Rocket Feast, such as shifts, attendance, leave and tasks, are kept for that venue and handled on the venue's behalf.",
+                "Records a venue keeps about its team in Rocket Feast, such as shifts, attendance, leave and tasks, belong to the venue: the venue is the controller and we process them on its behalf.",
             ],
         },
         {
@@ -87,9 +87,11 @@ export const privacyPolicy: LegalDocument = {
                 { subheading: "What we receive from Meta" },
                 "Through Meta's APIs, we receive:",
                 [
-                    "Messages and comments that guests send to the venue's connected Facebook Page or Instagram account.",
-                    "The sender's ID for that Page or account, and their public profile name or username.",
+                    "Messages that guests send to the venue's connected Facebook Page or Instagram account, including photos, videos, voice messages and replies to the venue's stories.",
+                    "Comments on the venue's own Facebook and Instagram posts.",
+                    "The sender's ID for that Page or account, their name or username, and their profile picture.",
                     "The time each message or comment was sent.",
+                    "When a venue connects: the name and Facebook ID of the person who connects, the Pages and Instagram accounts they choose, and access keys that let Rocket Feast act for those accounts. We store access keys encrypted.",
                 ],
                 "We only receive what guests send to the venue's own connected accounts. We do not read your other conversations or your activity elsewhere on Facebook or Instagram.",
                 { subheading: "What we store" },
@@ -97,9 +99,10 @@ export const privacyPolicy: LegalDocument = {
                     "Message text and comments.",
                     "The sender ID and username or profile name.",
                     "Timestamps.",
+                    "Photos and other attachments in guest messages.",
                     "Replies sent to the guest, whether written by the AI assistant or by staff.",
                     "Staff notes about the conversation.",
-                    "Saved answers: general facts, such as opening hours or prices, that the venue's team approves for reuse. They are written to answer common questions, not to hold details about a particular guest.",
+                    "Saved answers: general facts, such as opening hours or prices, that the AI saves from staff answers so it can answer the same question next time. They are not meant to hold details about a particular guest. The venue's team can see, edit and remove them, and they are kept until the venue removes them or they expire.",
                     "Posts the venue approves, and the photos its team uploads for them.",
                 ],
                 { subheading: "Why we use it" },
@@ -110,10 +113,11 @@ export const privacyPolicy: LegalDocument = {
                     "To keep a record of the conversation so the venue can follow up.",
                     "To publish posts the venue has approved.",
                 ],
-                "A venue's staff may link a conversation to your member record at that venue, for example when your name or phone number matches.",
+                "Rocket Feast may link a conversation to your member record at that venue when your name or phone number matches, and the venue's staff can link it themselves.",
                 { subheading: "Replies written by AI" },
                 "An AI assistant drafts or sends replies for the venue. It follows the rules the venue sets and uses the venue's own information and saved answers. Staff can reply themselves or take over at any time, and you can ask to speak to a person.",
-                "To write replies, AI model providers process the message text. Under their API terms, they do not use this data to train their models.",
+                "To write replies, AI model providers process the message text. We only use providers that have agreed not to use it to train their models.",
+                "Please do not send sensitive details, such as health information, by message unless you need to. If you tell a venue about an allergy, it is used only to answer you.",
                 { subheading: "Who can see it" },
                 [
                     "The venue's authorised staff.",
@@ -121,11 +125,11 @@ export const privacyPolicy: LegalDocument = {
                     "Our service providers, such as cloud hosting and AI model providers, only to provide their service to us.",
                 ],
                 { subheading: "How we use data from Meta" },
-                "We use data we receive from Meta only to provide Rocket Feast Social to the venue whose account it came from. We never sell it. We do not use it for advertising, we do not share it with other venues, and we do not combine it across venues to build profiles of people.",
+                "We use data we receive from Meta only to provide Rocket Feast Social to the business whose account it came from. We never sell it. We do not use it for advertising, we do not share it with other businesses that use Rocket Feast, and we do not combine it across businesses to build profiles of people.",
                 { subheading: "How long we keep it" },
                 [
                     "Guest conversations are kept for 90 days after the last message, then deleted, unless the venue deletes them sooner.",
-                    "When a venue disconnects its Facebook Page or Instagram account, or stops using Rocket Feast Social, we delete the data we received from Meta for that account within 30 days.",
+                    "When a venue disconnects its Facebook Page or Instagram account (in Rocket Feast or in its Facebook settings under Business Integrations), or stops using Rocket Feast Social, we delete the data we received from Meta for that account within 30 days.",
                     "Posts that have been published stay on Facebook or Instagram until the venue removes them there.",
                 ],
                 `To ask for your messages to be deleted, see our [data deletion instructions](${LEGAL_ROUTES.dataDeletion}).`,
@@ -160,7 +164,7 @@ export const privacyPolicy: LegalDocument = {
                     "With service providers that work for us, such as cloud hosting (Amazon Web Services), AI model providers and the services that connect us to them, and email and SMS providers.",
                     "With Meta, to receive and send messages and publish posts for venues that use Rocket Feast Social.",
                     "With payment providers and other services a venue chooses to connect.",
-                    "With messaging apps a venue turns on for staff alerts, such as Telegram. These alerts are kept short.",
+                    "With messaging apps a venue turns on for staff alerts, such as Telegram. These alerts say a guest needs a reply and link to Rocket Feast. If the venue chooses, an alert can include the guest's latest message.",
                     "With professional advisers, or with authorities when the law requires it.",
                     "With a buyer or successor if our business is sold or reorganised, under the same protections.",
                 ],
@@ -171,7 +175,7 @@ export const privacyPolicy: LegalDocument = {
             id: "international-transfers",
             heading: "Data sent to other countries",
             blocks: [
-                "We are based in Hong Kong and most venues are in Thailand. Some of our service providers, including AI model providers, process data in other countries. When data leaves Thailand or Hong Kong, we use contracts and our providers' data protection commitments to keep it protected, as the PDPA and PDPO require.",
+                "We store Rocket Feast data with Amazon Web Services in Thailand (Bangkok). This website is hosted by Amazon Web Services outside Thailand. Some service providers, including AI model providers, process data in other countries, mainly the United States. When data leaves Thailand, we use contracts and our providers' data protection commitments to protect it, as the PDPA requires. We apply the same protections to data from Hong Kong.",
             ],
         },
         {
@@ -214,7 +218,7 @@ export const privacyPolicy: LegalDocument = {
             id: "cookies",
             heading: "Cookies and browser storage",
             blocks: [
-                "rocketfeast.com does not use advertising or analytics cookies. We store your chosen region and language in your browser so the site remembers them. We may use your IP address to suggest your region. When you sign in, we use a cookie that recognises a device you have used before, to keep your account secure.",
+                "rocketfeast.com does not use advertising or analytics cookies. We store your chosen region, language and display theme in your browser so the site remembers them. We may use your IP address to suggest your region. When you sign in, we use a cookie that recognises a device you have used before, to keep your account secure.",
             ],
         },
         {
@@ -234,7 +238,7 @@ export const privacyPolicy: LegalDocument = {
         {
             id: "contact",
             heading: "Contact",
-            blocks: [`Maple Close Limited, trading as Rocket Feast. Registered address: [Registered address to be added]. Contact us through ${contactLink}.`],
+            blocks: [`Maple Close Limited, trading as Rocket Feast. Registered address: No. 5, 17/F, Strand 50, 50 Bonham Strand, Sheung Wan, Hong Kong SAR. Contact us through ${contactLink}.`],
         },
     ],
 };

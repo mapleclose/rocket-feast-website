@@ -5,14 +5,14 @@ export const dataDeletion: LegalDocument = {
     description: "How to ask Rocket Feast to delete your personal data, including messages received through Facebook and Instagram.",
     intro: [
         "This page explains how to ask Rocket Feast to delete your personal data. This includes messages and comments a venue received through its Facebook Page or Instagram account using Rocket Feast Social.",
-        "Rocket Feast is operated by Maple Close Limited, a company incorporated in Hong Kong.",
+        "Rocket Feast is operated by Maple Close Limited (Hong Kong company number 2191307), a company incorporated in Hong Kong.",
     ],
     sections: [
         {
             id: "guests",
             heading: "If you are a guest of a venue",
             blocks: [
-                "The venue you contacted controls your data. You can ask the venue directly: speak to its staff, or send a message to the same Facebook Page or Instagram account. The venue can delete your conversation in Rocket Feast.",
+                "The venue you contacted controls your data. You can ask the venue directly: speak to its staff, or send a message to the same Facebook Page or Instagram account. The venue can have your conversation deleted.",
                 "You can also ask us, and we will work with the venue to delete it.",
                 "Even if you do not ask, guest conversations are kept for 90 days after the last message, then deleted, unless the venue deletes them sooner.",
             ],
@@ -39,7 +39,7 @@ export const dataDeletion: LegalDocument = {
                 [
                     "We confirm that we have received your request.",
                     "If the venue controls the data, we tell the venue and help it act on your request.",
-                    "We delete the data within 30 days and confirm when it is done.",
+                    "The data is deleted within 30 days of your request, and we confirm when it is done.",
                     "If the law requires us or the venue to keep some records, such as tax records for a bill you paid, we tell you what we kept and why.",
                 ],
             ],
@@ -48,10 +48,10 @@ export const dataDeletion: LegalDocument = {
             id: "venues",
             heading: "If you run a venue",
             blocks: [
-                "You can remove data received from Meta yourself:",
+                "You can remove data received from Meta at any time:",
                 [
-                    "To delete a conversation, open it in Social › Inbox in Rocket Feast and delete it.",
-                    "To remove all data from a Facebook Page or Instagram account, disconnect the account in Social › Settings › Accounts. We delete the data we received from Meta for that account within 30 days.",
+                    `To delete a conversation, or all data from a Facebook Page or Instagram account, contact us through ${contactLink}. We delete it within 30 days.`,
+                    "To stop Rocket Feast receiving data from your Page and Instagram account, remove Rocket Feast Social in your Facebook settings under Business Integrations. We delete the data we received from Meta for that account within 30 days after it is disconnected.",
                 ],
                 "Posts you have already published stay on Facebook or Instagram until you remove them there.",
             ],
