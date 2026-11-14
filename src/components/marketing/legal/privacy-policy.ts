@@ -124,7 +124,7 @@ export const privacyPolicy: LegalDocument = {
                 "We use data we receive from Meta only to provide Rocket Feast Social to the venue whose account it came from. We never sell it. We do not use it for advertising, we do not share it with other venues, and we do not combine it across venues to build profiles of people.",
                 { subheading: "How long we keep it" },
                 [
-                    "Guest conversations are kept for 12 months after the last message, then deleted. A venue can delete a conversation sooner.",
+                    "Guest conversations are kept for 90 days after the last message, then deleted, unless the venue deletes them sooner.",
                     "When a venue disconnects its Facebook Page or Instagram account, or stops using Rocket Feast Social, we delete the data we received from Meta for that account within 30 days.",
                     "Posts that have been published stay on Facebook or Instagram until the venue removes them there.",
                 ],

@@ -9,6 +9,8 @@ import { termsOfService } from "./terms-of-service";
 
 const documents: Record<string, LegalDocument> = { privacyPolicy, termsOfService, dataDeletion };
 const root = process.cwd();
+// Approved integration plan (social_messages retention: 90 days).
+const GUEST_RETENTION = "kept for 90 days after the last message, then deleted, unless the venue deletes them sooner";
 
 describe("legal routes", () => {
     it("serves the three legal pages at the agreed paths", () => {
@@ -86,7 +88,8 @@ describe("privacy policy", () => {
         for (const item of ["message text", "sender ID", "username", "timestamps", "replies", "staff notes", "saved answers"]) {
             expect(text.toLowerCase()).toContain(item.toLowerCase());
         }
-        expect(text).toContain("12 months");
+        expect(text).toContain(GUEST_RETENTION);
+        expect(text).not.toContain("12 months");
         expect(text).toContain("within 30 days");
         expect(text).toMatch(/do not (use .* to )?train/i);
         expect(text).toMatch(/never sell/i);
@@ -97,6 +100,11 @@ describe("privacy policy", () => {
 
 describe("data deletion instructions", () => {
     const text = documentText(dataDeletion);
+
+    it("states the 90-day guest conversation retention", () => {
+        expect(text).toContain(GUEST_RETENTION);
+        expect(text).not.toContain("12 months");
+    });
 
     it("says what to include and how long it takes", () => {
         expect(text).toMatch(/Facebook Page or Instagram account/);

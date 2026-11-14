@@ -14,6 +14,7 @@ export const dataDeletion: LegalDocument = {
             blocks: [
                 "The venue you contacted controls your data. You can ask the venue directly: speak to its staff, or send a message to the same Facebook Page or Instagram account. The venue can delete your conversation in Rocket Feast.",
                 "You can also ask us, and we will work with the venue to delete it.",
+                "Even if you do not ask, guest conversations are kept for 90 days after the last message, then deleted, unless the venue deletes them sooner.",
             ],
         },
         {
