@@ -57,6 +57,14 @@ describe("every legal document", () => {
         }
     });
 
+    it("sends privacy and deletion requests to privacy@mapleclose.com", () => {
+        expect(LEGAL_CONTACT.email).toBe("privacy@mapleclose.com");
+    });
+
+    it.each(Object.entries(documents))("%s links the privacy mailbox", (_name, doc) => {
+        expect(inlineLinks(doc)).toContain("mailto:privacy@mapleclose.com");
+    });
+
     it.each(Object.entries(documents))("%s does not invent a mailbox", (_name, doc) => {
         const emails = documentText(doc).match(/[\w.+-]+@[\w-]+\.[\w.]+/g) ?? [];
         const expected = LEGAL_CONTACT.email ? [LEGAL_CONTACT.email] : [];

@@ -15,11 +15,11 @@ export const LEGAL_ROUTES = {
 
 /**
  * Where people reach us about privacy and legal questions.
- * TODO(owner): set `email` to the mailbox that should receive privacy and deletion requests.
- * While it is undefined, the pages point to the contact page instead.
+ * Privacy and deletion requests go to privacy@mapleclose.com (owner's choice, 14 Nov 2026).
+ * If `email` is ever unset, the pages fall back to the contact page.
  */
 export const LEGAL_CONTACT: { email: string | undefined; pageHref: string } = {
-    email: undefined,
+    email: "privacy@mapleclose.com",
     pageHref: "/contact",
 };
 
