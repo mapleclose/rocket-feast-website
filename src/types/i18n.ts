@@ -503,6 +503,7 @@ export interface ContentConfig {
             terms: string;
             privacy: string;
             cookies: string;
+            dataDeletion: string;
         };
         copyright: string;
     };
