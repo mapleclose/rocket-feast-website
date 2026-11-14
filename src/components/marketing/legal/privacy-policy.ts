@@ -5,7 +5,7 @@ export const privacyPolicy: LegalDocument = {
     description:
         "How Rocket Feast, operated by Maple Close Limited, collects, uses and protects personal data, including messages received through Facebook and Instagram.",
     intro: [
-        'This policy explains how Rocket Feast handles personal data. Rocket Feast is operated by Maple Close Limited (Hong Kong company number 2191307), a company incorporated in Hong Kong ("Rocket Feast", "we", "us").',
+        'This policy explains how Rocket Feast handles personal data. Rocket Feast is operated by Maple Close Limited, a company incorporated in Hong Kong (company number 2191307) ("Rocket Feast", "we", "us").',
         'Rocket Feast is a restaurant and venue management platform. We sell it to hospitality businesses ("venues"), such as restaurants, cafés, bars and leisure venues. It covers point of sale, menus, ordering, bills, members, staff, inventory and admissions.',
     ],
     sections: [
@@ -72,10 +72,11 @@ export const privacyPolicy: LegalDocument = {
                     "Billing details and the plans and modules you buy.",
                     "Messages and support requests you send us.",
                 ],
+                "If you buy Rocket Feast through a reseller, such as Yummi Umami Ltd in Thailand, the reseller also handles your order and billing details, under its own privacy policy.",
                 { subheading: "Visitors to rocketfeast.com" },
                 [
                     "Technical data such as IP address, browser type and the pages you visit.",
-                    "Your chosen region and language. See Cookies and browser storage below.",
+                    "Your chosen region, language and display theme. See Cookies and browser storage below.",
                 ],
             ],
         },
@@ -97,7 +98,7 @@ export const privacyPolicy: LegalDocument = {
                 { subheading: "What we store" },
                 [
                     "Message text and comments.",
-                    "The sender ID and username or profile name.",
+                    "The sender ID, username or profile name, and profile picture.",
                     "Timestamps.",
                     "Photos and other attachments in guest messages.",
                     "Replies sent to the guest, whether written by the AI assistant or by staff.",
@@ -117,7 +118,7 @@ export const privacyPolicy: LegalDocument = {
                 { subheading: "Replies written by AI" },
                 "An AI assistant drafts or sends replies for the venue. It follows the rules the venue sets and uses the venue's own information and saved answers. Staff can reply themselves or take over at any time, and you can ask to speak to a person.",
                 "To write replies, AI model providers process the message text. We only use providers that have agreed not to use it to train their models.",
-                "Please do not send sensitive details, such as health information, by message unless you need to. If you tell a venue about an allergy, it is used only to answer you.",
+                "Please do not send sensitive details, such as health information, by message unless you need to. If you tell a venue about an allergy, it is used to answer you and to serve you safely.",
                 { subheading: "Who can see it" },
                 [
                     "The venue's authorised staff.",
@@ -129,7 +130,7 @@ export const privacyPolicy: LegalDocument = {
                 { subheading: "How long we keep it" },
                 [
                     "Guest conversations are kept for 90 days after the last message, then deleted, unless the venue deletes them sooner.",
-                    "When a venue disconnects its Facebook Page or Instagram account (in Rocket Feast or in its Facebook settings under Business Integrations), or stops using Rocket Feast Social, we delete the data we received from Meta for that account within 30 days.",
+                    "When a venue disconnects its Facebook Page or Instagram account (in its Facebook settings under Business Integrations, or by asking us), or stops using Rocket Feast Social, we delete the data we received from Meta for that account within 30 days.",
                     "Posts that have been published stay on Facebook or Instagram until the venue removes them there.",
                 ],
                 `To ask for your messages to be deleted, see our [data deletion instructions](${LEGAL_ROUTES.dataDeletion}).`,

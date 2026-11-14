@@ -11,7 +11,7 @@ const documents: Record<string, LegalDocument> = { privacyPolicy, termsOfService
 const root = process.cwd();
 // Approved integration plan (social_messages retention: 90 days).
 const REGISTERED_ADDRESS = "No. 5, 17/F, Strand 50, 50 Bonham Strand, Sheung Wan, Hong Kong SAR";
-const COMPANY_NUMBER = "(Hong Kong company number 2191307)";
+const COMPANY_NUMBER = "a company incorporated in Hong Kong (company number 2191307)";
 const GUEST_RETENTION = "kept for 90 days after the last message, then deleted, unless the venue deletes them sooner";
 
 describe("legal routes", () => {
@@ -79,7 +79,7 @@ describe("every legal document", () => {
     });
 
     it.each(Object.entries(documents))("%s gives the company number", (_name, doc) => {
-        expect(documentText(doc)).toContain(`Maple Close Limited ${COMPANY_NUMBER}`);
+        expect(documentText(doc)).toContain(`Maple Close Limited, ${COMPANY_NUMBER}`);
     });
 
     it.each(Object.entries(documents))("%s names the operator", (_name, doc) => {
@@ -135,6 +135,8 @@ describe("privacy policy", () => {
             const t = documentText(doc);
             expect(t).not.toContain("Social › Inbox");
             expect(t).not.toContain("Social › Settings");
+            expect(t).not.toContain("in Rocket Feast or");
+            expect(t).not.toContain("Hong Kong company number");
         }
     });
 

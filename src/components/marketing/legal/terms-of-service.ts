@@ -4,7 +4,7 @@ export const termsOfService: LegalDocument = {
     title: "Terms of Service",
     description: "The terms for businesses that use Rocket Feast, the restaurant and venue management platform operated by Maple Close Limited.",
     intro: [
-        'These terms are an agreement between Maple Close Limited (Hong Kong company number 2191307), a company incorporated in Hong Kong and trading as Rocket Feast ("Rocket Feast", "we", "us"), and the business that signs up to use Rocket Feast ("you"). They also apply to everyone who uses Rocket Feast on that business\'s behalf.',
+        'These terms are an agreement between Maple Close Limited, a company incorporated in Hong Kong (company number 2191307) and trading as Rocket Feast ("Rocket Feast", "we", "us"), and the business that signs up to use Rocket Feast ("you"). They also apply to everyone who uses Rocket Feast on that business\'s behalf.',
         "If you have a separate signed agreement or order form with us, it takes priority where it differs from these terms.",
         "If you buy Rocket Feast through an authorised reseller, such as Yummi Umami Ltd in Thailand, your order and billing are with the reseller, and these terms govern your use of Rocket Feast with us.",
     ],

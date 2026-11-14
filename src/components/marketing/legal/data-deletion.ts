@@ -5,7 +5,7 @@ export const dataDeletion: LegalDocument = {
     description: "How to ask Rocket Feast to delete your personal data, including messages received through Facebook and Instagram.",
     intro: [
         "This page explains how to ask Rocket Feast to delete your personal data. This includes messages and comments a venue received through its Facebook Page or Instagram account using Rocket Feast Social.",
-        "Rocket Feast is operated by Maple Close Limited (Hong Kong company number 2191307), a company incorporated in Hong Kong.",
+        "Rocket Feast is operated by Maple Close Limited, a company incorporated in Hong Kong (company number 2191307).",
     ],
     sections: [
         {
@@ -51,7 +51,7 @@ export const dataDeletion: LegalDocument = {
                 "You can remove data received from Meta at any time:",
                 [
                     `To delete a conversation, or all data from a Facebook Page or Instagram account, contact us through ${contactLink}. We delete it within 30 days.`,
-                    "To stop Rocket Feast receiving data from your Page and Instagram account, remove Rocket Feast Social in your Facebook settings under Business Integrations. We delete the data we received from Meta for that account within 30 days after it is disconnected.",
+                    "To stop Rocket Feast receiving data from your Facebook Page or Instagram account, remove Rocket Feast Social in your Facebook settings under Business Integrations. We delete the data we received from Meta for that account within 30 days after it is disconnected.",
                 ],
                 "Posts you have already published stay on Facebook or Instagram until you remove them there.",
             ],
