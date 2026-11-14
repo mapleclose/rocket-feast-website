@@ -5,6 +5,7 @@ import { Button } from "@/components/base/buttons/button";
 import { Form } from "@/components/base/form/form";
 import { Input } from "@/components/base/input/input";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
+import { LEGAL_ROUTES } from "@/components/marketing/legal/legal-document";
 import { useI18n } from "@/hooks/use-i18n";
 
 export const FooterLarge04 = () => {
@@ -108,19 +109,23 @@ export const FooterLarge04 = () => {
                         © {new Date().getFullYear()} {regional.company.legalName}. {t("footer.copyright")}
                     </p>
 
-                    <ul className="flex gap-4">
+                    <ul className="flex flex-wrap gap-x-4 gap-y-2">
                         {[
                             {
                                 label: t("footer.legal.terms"),
-                                href: "#",
+                                href: LEGAL_ROUTES.terms,
                             },
                             {
                                 label: t("footer.legal.privacy"),
-                                href: "#",
+                                href: LEGAL_ROUTES.privacy,
                             },
                             {
                                 label: t("footer.legal.cookies"),
-                                href: "#",
+                                href: `${LEGAL_ROUTES.privacy}#cookies`,
+                            },
+                            {
+                                label: t("footer.legal.dataDeletion"),
+                                href: LEGAL_ROUTES.dataDeletion,
                             },
                         ].map(({ label, href }) => (
                             <li key={label}>

@@ -9,6 +9,7 @@ import { Input } from "@/components/base/input/input";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { StarIcon } from "@/components/foundations/rating-stars";
 import { Header } from "@/components/marketing/header-navigation/header";
+import { LEGAL_ROUTES } from "@/components/marketing/legal/legal-document";
 import { SectionDivider } from "@/components/shared-assets/section-divider";
 import { cx } from "@/utils/cx";
 
@@ -112,9 +113,10 @@ const footerNavList = [
     {
         label: "Legal",
         items: [
-            { label: "Terms", href: "#" },
-            { label: "Privacy", href: "#" },
-            { label: "Cookies", href: "#" },
+            { label: "Terms", href: LEGAL_ROUTES.terms },
+            { label: "Privacy", href: LEGAL_ROUTES.privacy },
+            { label: "Cookies", href: `${LEGAL_ROUTES.privacy}#cookies` },
+            { label: "Data deletion", href: LEGAL_ROUTES.dataDeletion },
             { label: "Licenses", href: "#" },
             { label: "Settings", href: "#" },
             { label: "Contact", href: "#" },

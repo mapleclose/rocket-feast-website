@@ -14,6 +14,7 @@ import { TextArea } from "@/components/base/textarea/textarea";
 import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-icon";
 import { UntitledLogo } from "@/components/foundations/logo/untitledui-logo";
 import { Header } from "@/components/marketing/header-navigation/header";
+import { LEGAL_ROUTES } from "@/components/marketing/legal/legal-document";
 import countries, { phoneCodeOptions } from "@/utils/countries";
 
 const ContactFormAndMap = () => {
@@ -68,7 +69,7 @@ const ContactFormAndMap = () => {
                                     <>
                                         You agree to our friendly{" "}
                                         <a
-                                            href="#"
+                                            href={LEGAL_ROUTES.privacy}
                                             className="rounded-xs underline underline-offset-3 outline-focus-ring focus-visible:outline-2 focus-visible:outline-offset-2"
                                         >
                                             privacy policy.
@@ -283,9 +284,10 @@ const navList2Brand = [
     {
         title: "Legal",
         items: [
-            { label: "Terms", href: "#" },
-            { label: "Privacy", href: "#" },
-            { label: "Cookies", href: "#" },
+            { label: "Terms", href: LEGAL_ROUTES.terms },
+            { label: "Privacy", href: LEGAL_ROUTES.privacy },
+            { label: "Cookies", href: `${LEGAL_ROUTES.privacy}#cookies` },
+            { label: "Data deletion", href: LEGAL_ROUTES.dataDeletion },
             { label: "Licenses", href: "#" },
             { label: "Settings", href: "#" },
             { label: "Contact", href: "#" },

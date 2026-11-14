@@ -67,31 +67,38 @@ export const globalEnConfig: I18nConfig = {
         why: {
             badge: "Why Rocket Feast",
             title: "Run Lean. Serve Better.",
-            subtitle: "Modern hospitality demands speed, precision, and consistency. Rocket Feast connects your front-of-house, kitchen, and back-office into one intelligent system that helps you serve more guests at a higher standard with fewer staff.",
+            subtitle:
+                "Modern hospitality demands speed, precision, and consistency. Rocket Feast connects your front-of-house, kitchen, and back-office into one intelligent system that helps you serve more guests at a higher standard with fewer staff.",
             guestOrdering: {
                 title: "Guest-Centric Ordering",
-                description: "QR ordering that feels effortless and personal. Guests browse and customise their meals from their phones while your staff focus on genuine hospitality.",
+                description:
+                    "QR ordering that feels effortless and personal. Guests browse and customise their meals from their phones while your staff focus on genuine hospitality.",
             },
             operatorPlatform: {
                 title: "Operator-First Platform",
-                description: "Built by restaurant operators who know the daily challenges. Automate staff workflows, gain real-time visibility, and run your entire operation from a single dashboard.",
+                description:
+                    "Built by restaurant operators who know the daily challenges. Automate staff workflows, gain real-time visibility, and run your entire operation from a single dashboard.",
             },
         },
         builtFor: {
             badge: "Built for Modern Hospitality",
             title: "Level Up Your Operations",
-            subtitle: "Rocket Feast helps modern restaurants, cafes, and hospitality venues eliminate customer friction, deliver faster, and serve smarter. Fewer staff, more throughput, higher customer satisfaction.",
+            subtitle:
+                "Rocket Feast helps modern restaurants, cafes, and hospitality venues eliminate customer friction, deliver faster, and serve smarter. Fewer staff, more throughput, higher customer satisfaction.",
             multiVenue: {
                 title: "Multi-Venue Restaurants",
-                description: "Unify your brand with centralised workflow automation, inventory control, team accountability infrastructure, and consistent quality enforcement across all locations.",
+                description:
+                    "Unify your brand with centralised workflow automation, inventory control, team accountability infrastructure, and consistent quality enforcement across all locations.",
             },
             highVolume: {
                 title: "High-Volume Service Venues",
-                description: "Ideal for restaurants, clubs, and hotel venues with fast-moving service. Reduce wait times, speed up fulfilment, and keep guests in control of their own experience.",
+                description:
+                    "Ideal for restaurants, clubs, and hotel venues with fast-moving service. Reduce wait times, speed up fulfilment, and keep guests in control of their own experience.",
             },
             qualityFocused: {
                 title: "Quality-Focused Operations",
-                description: "Track and improve guest satisfaction in real time with integrated review capture and reporting. Standardise processes, maintain accountability, and scale quality as you grow.",
+                description:
+                    "Track and improve guest satisfaction in real time with integrated review capture and reporting. Standardise processes, maintain accountability, and scale quality as you grow.",
             },
         },
         metrics: {
@@ -121,22 +128,27 @@ export const globalEnConfig: I18nConfig = {
         completePlatform: {
             badge: "Complete Platform",
             title: "Everything You Need in One System",
-            subtitle: "Stop juggling spreadsheets and disconnected apps. Rocket Feast unifies your operation into one platform designed to help teams work faster and guests order easier.",
+            subtitle:
+                "Stop juggling spreadsheets and disconnected apps. Rocket Feast unifies your operation into one platform designed to help teams work faster and guests order easier.",
             qrPos: {
                 title: "QR & POS Ordering",
-                description: "Give guests full control of their experience while keeping traditional POS workflows for your team. A single system that powers self-service, quick service, and table operations seamlessly.",
+                description:
+                    "Give guests full control of their experience while keeping traditional POS workflows for your team. A single system that powers self-service, quick service, and table operations seamlessly.",
             },
             inventory: {
                 title: "Smart Inventory Management",
-                description: "Automated purchase orders, prep lists, and low-stock alerts ensure your kitchen always runs efficiently and stays ahead of demand.",
+                description:
+                    "Automated purchase orders, prep lists, and low-stock alerts ensure your kitchen always runs efficiently and stays ahead of demand.",
             },
             staffAutomation: {
                 title: "Staff Automation & Gamification",
-                description: "Turn daily routines into motivating workflows. Keep your team accountable and enthusiastic with task tracking, time-sensitive prompts, and gamified rewards that boost efficiency.",
+                description:
+                    "Turn daily routines into motivating workflows. Keep your team accountable and enthusiastic with task tracking, time-sensitive prompts, and gamified rewards that boost efficiency.",
             },
             loyalty: {
                 title: "Customer Loyalty & Analytics",
-                description: "Reward regulars automatically and understand your guests with a built-in loyalty programme, performance dashboards, and actionable insights that increase long-term value.",
+                description:
+                    "Reward regulars automatically and understand your guests with a built-in loyalty programme, performance dashboards, and actionable insights that increase long-term value.",
             },
         },
         howItWorks: {
@@ -145,7 +157,8 @@ export const globalEnConfig: I18nConfig = {
             subtitle: "Rocket Feast connects every touchpoint in your operation so service flows naturally and data works for you.",
             guestOrdering: {
                 title: "Guest Ordering Made Personal",
-                description: "Guests scan a QR code to browse a beautifully designed, photo-rich menu filtered by dietary sensitivities. They customise and place orders instantly, and can track progress from preparation to serving.",
+                description:
+                    "Guests scan a QR code to browse a beautifully designed, photo-rich menu filtered by dietary sensitivities. They customise and place orders instantly, and can track progress from preparation to serving.",
                 features: [
                     "Photo-optimised menus with filters for allergies and diets",
                     "Real-time menu updates and availability",
@@ -154,7 +167,8 @@ export const globalEnConfig: I18nConfig = {
             },
             kitchen: {
                 title: "Kitchen Operations That Flow",
-                description: "Orders route automatically to the right stations for faster prep and perfect coordination. Guests stay informed as orders move through the system.",
+                description:
+                    "Orders route automatically to the right stations for faster prep and perfect coordination. Guests stay informed as orders move through the system.",
                 features: [
                     "Station-specific kitchen displays for precision workflow",
                     "Automatic prioritisation to prevent bottlenecks",
@@ -250,7 +264,8 @@ export const globalEnConfig: I18nConfig = {
             page: {
                 badge: "Features",
                 title: "Everything You Need to Run Modern Hospitality",
-                subtitle: "From guest ordering to kitchen operations, staff management to loyalty programs—Rocket Feast connects every part of your venue into one intelligent system.",
+                subtitle:
+                    "From guest ordering to kitchen operations, staff management to loyalty programs—Rocket Feast connects every part of your venue into one intelligent system.",
             },
         },
         pricing: {
@@ -486,12 +501,14 @@ export const globalEnConfig: I18nConfig = {
             badge: "Ready to Transform Your Operation?",
             title: "Start Free and Scale When You're Ready",
             titleMobile: "Start Free Today",
-            subtitle: "Join hospitality venues improving efficiency, service speed, quality, and profitability with Rocket Feast. No credit card required. Setup takes minutes.",
+            subtitle:
+                "Join hospitality venues improving efficiency, service speed, quality, and profitability with Rocket Feast. No credit card required. Setup takes minutes.",
             ctaPrimary: "Get Started for Free",
             ctaSecondary: "Book a Demo",
         },
         footer: {
-            description: "Rocket Feast is the smart operating system for restaurants, cafes, and hospitality venues. It connects ordering, fulfilment, and staffing into one seamless workflow, helping you serve faster, run leaner, and deliver excellent guest experiences every time.",
+            description:
+                "Rocket Feast is the smart operating system for restaurants, cafes, and hospitality venues. It connects ordering, fulfilment, and staffing into one seamless workflow, helping you serve faster, run leaner, and deliver excellent guest experiences every time.",
             product: {
                 label: "Product",
                 features: "Features",
@@ -515,6 +532,7 @@ export const globalEnConfig: I18nConfig = {
                 terms: "Terms",
                 privacy: "Privacy",
                 cookies: "Cookies",
+                dataDeletion: "Data deletion",
             },
             copyright: "All rights reserved.",
         },
